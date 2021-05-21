@@ -1,0 +1,22 @@
+############################ banner ##########################
+banner:
+  enable : true
+  title : "Reformed Study Books"
+  content : "The Study provides Reformed study books to enrich and promote the study of scripture."
+  image : "images/banner.png"
+  image2 : "images/banner2.png"
+  # button
+  button:
+    enable : true
+    label : "All Books"
+    link : "products"
+
+
+######################## Products #############################
+products:
+  enable : true
+  title : "Featured Books"
+  content: "These books are good examples of the types of resources available at The Study and we encourage you to have a closer look."
+  # product item comes from "content/products"
+
+  

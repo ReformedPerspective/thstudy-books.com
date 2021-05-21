@@ -1,0 +1,204 @@
+######################## default configuration ####################
+baseURL = "https://thestudy.coolnet.xyz"
+languageCode = "en"
+title = "The Study - Canadian Reformed non-profit"
+theme = ""
+summaryLength = "20"
+paginate = 10
+disqusShortname = ""
+
+############################# Plugins ##############################
+[params.plugins]
+
+  # CSS Plugins
+  #[[params.plugins.css]]
+  #link = "https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+  #integrity = "sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+  #crossorigin = "anonymous"
+  #link = "plugins/bootstrap/bootstrap.min.css"
+  #[[params.plugins.css]]
+  #link = "plugins/slick/slick.css"
+  #[[params.plugins.css]]
+  #link = "plugins/themify-icons/themify-icons.css"
+
+  # JS Plugins
+  [[params.plugins.js]]
+  link = "https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity = "sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+  crossorigin = "anonymous"
+  #link = "plugins/jQuery/jquery.min.js"
+  [[params.plugins.js]]
+  link = "https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+  integrity = "sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+  crossorigin = "anonymous"
+  #link = "plugins/bootstrap/bootstrap.min.js"
+  #[[params.plugins.js]]
+  #link = "plugins/slick/slick.min.js"
+  #[[params.plugins.js]]
+  #link = "plugins/google-map/gmap.js"
+
+
+############################## navigation ###############################
+[menu]
+
+  [[menu.main]]
+  name = "Books"
+  URL = "products"
+  weight = 1
+
+  [[menu.main]]
+  name = "Old Testament"
+  URL = "categories/old-testament"
+  parent = "Books"
+  weight = 1
+
+  [[menu.main]]
+  name = "New Testament"
+  URL = "categories/new-testament"
+  parent = "Books"
+  weight = 2
+
+  [[menu.main]]
+  name = "Confessional / Topical"
+  URL = "categories/confessional-topical"
+  parent = "Books"
+  weight = 3
+
+  [[menu.main]]
+  name = "Other Books"
+  URL = "categories/other-books"
+  parent = "Books"
+  weight = 4
+
+  [[menu.main]]
+  name = "Featured Books"
+  URL = "categories/featured"
+  parent = "Books"
+  weight = 5
+
+  [[menu.main]]
+  name = "The Study Books"
+  URL = "categories/the-study-books"
+  parent = "Books"
+  weight = 6
+
+  #[[menu.main]]
+  #name = "Blog"
+  #URL = "blog"
+  #weight = 2
+
+  [[menu.main]]
+  name = "FAQ"
+  URL = "faq"
+  weight = 3
+
+  #[[menu.main]]
+  #name = "Contact"
+  #URL = "contact"
+  #weight = 6
+
+  [[menu.main]]
+  name = "About"
+  URL = "about"
+  weight = 2
+
+  [[menu.main]]
+  name = "Resources"
+  URL = "resources"
+  weight = 5
+
+  ############# footer menu #############
+  [[menu.footer]]
+  name = "Books"
+  URL = "products"
+  weight = 1
+
+  #[[menu.footer]]
+  #name = "Blog"
+  #URL = "blog"
+  #weight = 2
+
+  [[menu.footer]]
+  name = "FAQ"
+  URL = "faq"
+  weight = 3
+
+  #[[menu.footer]]
+  #name = "Terms & Conditions"
+  #URL = "terms-conditions"
+  #weight = 4
+
+  [[menu.footer]]
+  name = "About"
+  URL = "about"
+  weight = 5
+
+  [[menu.footer]]
+  name = "Resources"
+  URL = "resources"
+  weight = 6
+
+
+#################### default parameters ################################
+[params]
+logo = "images/logo.png"
+home = "Home"
+# Meta data
+description = "The Study Books - maintained by members of the Canadian Reformed Churches"
+author = "Reformed Perspective"
+# google map
+gmapAPI = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"
+mapLatitude = ""
+mapLongitude = ""
+mapMarker = "images/marker.png"
+# Google Analitycs
+googleAnalitycsID = "" # Your ID
+# Contact Information
+mobile = "(519) 654-3210"
+email = "thestudy.books@gmail.com"
+location = "Fergus, Ontario, Canada"
+# copyright
+copyright = "| Copyright &copy; 2021 [Reformed Perspective](https://reformedperspective.ca) All Rights Reserved |"
+# Snipcart Credentials
+snipcartApiKey = "OGUxZmFlZGEtY2NkNy00MWU2LTk2N2MtNTE2ODcwYzRiNzRjNjM3NTMxNjE5NTU5MTMwOTgy"
+currencySymbol = "$"
+
+  # Preloader
+  [params.preloader]
+  enable = false
+  preloader = "" # use .png , .svg or .gif format
+
+  # Product Rating
+  # it works with https://rating-widget.com/ , you will get the ID and publicKey after creating your account there.
+  [params.rating]
+  enable = false
+  websiteID = "444334"
+  publicKey = "811cf0927332bf51f2e12f84608594ac"
+
+  [params.google]
+  enable = false
+
+  # Social Site
+  [[params.social]]
+  icon = "bi-facebook"
+  link = "https://www.facebook.com/ReformedPerspectiveMagazine/"
+
+  #[[params.social]]
+  #icon = "ti-twitter-alt"
+  #link = "#"
+
+  #[[params.social]]
+  #icon = "ti-youtube"
+  #link = "#"
+
+  [[params.social]]
+  icon = "bi-instagram"
+  link = "https://www.instagram.com/ReformedPerspective/"
+
+  #[[params.social]]
+  #icon = "ti-pinterest"
+  #link = "#"
+
+  # Contact Form
+  [params.contact]
+  formAction = "#" # contact form works with formspree.io

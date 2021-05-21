@@ -1,0 +1,50 @@
+{{ define "main" }}
+
+{{ partial "page-title.html" . }}
+
+<section class="section pt-0">
+  <div class="container">
+    <div class="row justify-content-center">
+      {{ $paginator := .Paginate (where .Data.Pages ".Params.parentID" "") }}
+      {{ range $paginator.Pages }}
+      <div class="col-lg-3 mx-auto mb-5">
+        <article class="card rounded-0 border-0">
+          <a href="{{ .Permalink }}">
+            <img src="{{ .Params.cover | absURL }}" alt="{{ .Title | markdownify }}" class="card-img-top">
+          </a>
+          <div class="card-body px-0">
+            <ul class="list-inline">
+              <li class="list-inline-item"><i class="bi-pencil text-primary mr-1"></i>{{ .Params.Author }}</li>
+              <li class="list-inline-item"><i class="bi-calendar text-primary mr-1"></i>{{ .Params.publishYear }}</li>
+              {{ if .Params.price }}
+              <li class="list-inline-item"><i class="bi-wallet text-primary mr-1"></i> {{ site.Params.currencySymbol }}{{ .Params.price }}</li>
+              {{ end }}
+            </ul>
+            
+            <a href="{{ .Permalink }}" class="btn btn-sm btn-outline-primary btn-block">{{ .Title }}</a>
+
+              {{/*<button class="snipcart-add-item btn btn-sm btn-outline-primary mb-20" data-item-id="{{ .Params.ProductID }}"
+                data-item-name="{{ .Params.Title }}" {{ .Params.cover }} data-item-image="{{ .Params.cover | absURL }}"
+                data-item-price="{{ .Params.Price }}" data-item-url="{{ .Permalink }}" data-item-description="{{ .Params.Description }}"
+                {{ if .Params.epubPrice }}
+                data-item-custom1-name="Format" data-item-custom1-options='{{ $fmtBase := "Paper|Digital (ePub)[-PRICE]" }}
+                  {{ $bookCost := .Params.price | float }}
+                  {{ $ePubCost := .Params.epubPrice | float }}
+                  {{ $priceDiff := sub $bookCost $ePubCost | string }}
+                  {{ replace $fmtBase "PRICE" $priceDiff  }}'
+                {{ end }}>
+                Add to cart
+            </button>*/}}
+            
+          </div>
+        </article>
+      </div>
+      {{ end }}
+    </div>
+    <div class="row justify-content-center">
+      {{ template "_internal/pagination.html" . }}
+    </div>
+  </div>
+</section>
+
+{{ end }}

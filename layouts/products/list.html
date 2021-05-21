@@ -1,0 +1,46 @@
+{{ define "main" }}
+
+{{ partial "page-title.html" . }}
+
+<section class="section pt-0" id="products">
+  <div class="container">
+    <div class="row justify-content-center">
+      {{ $paginator := .Paginate (where .Data.Pages ".Params.parentID" "") }}
+      {{ range $paginator.Pages }}
+      <div class="col-lg-3 col-sm-6 mb-4">
+        <div class="card border-0 text-center">
+          <a href="{{ .Permalink }}">
+            <img src="{{ .Params.cover | absURL }}" alt="{{ .Title }}" class="card-img-top ">
+          </a>
+          <div class="card-body">
+            <div class="mb-4">
+              {{ if .Params.salePrice }}
+              <s>{{ site.Params.currencySymbol }}{{ .Params.salePrice }}</s>
+              {{ end }}
+              <span class="lead text-primary">{{ site.Params.currencySymbol }}{{ .Params.Price }}</span>
+            </div>
+              <a href="{{ .Permalink }}" class="btn btn-block btn-outline-primary">{{ .Title }}</a>
+              {{/*<button class="snipcart-add-item btn btn-sm btn-outline-primary mb-20" data-item-id="{{ .Params.ProductID }}"
+                data-item-name="{{ .Params.Title }}" {{ .Params.cover }} data-item-image="{{ .Params.cover | absURL }}"
+                data-item-price="{{ .Params.Price }}" data-item-url="{{ .Permalink }}" data-item-description="{{ .Params.Description }}"
+                {{ if .Params.epubPrice }}
+                data-item-custom1-name="Format" data-item-custom1-options='{{ $fmtBase := "Paper|Digital (ePub)[-PRICE]" }}
+                  {{ $bookCost := .Params.price | float }}
+                  {{ $ePubCost := .Params.epubPrice | float }}
+                  {{ $priceDiff := sub $bookCost $ePubCost | string }}
+                  {{ replace $fmtBase "PRICE" $priceDiff  }}'
+                {{ end }}>
+                Add to cart
+              </button>*/}}
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+    <div class="row justify-content-center">
+      {{ template "_internal/pagination.html" . }}
+    </div>
+  </div>
+</section>
+
+{{ end }}

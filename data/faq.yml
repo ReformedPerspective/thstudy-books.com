@@ -1,0 +1,57 @@
+faqItem:
+  - title: How much do you charge for shipping within Canada?
+    content: Shipping and handling is included in your purchase price.  There are no hidden costs.
+
+  - title: How soon will my books arrive?
+    content: Within Canada your books should arrive within 12 business days.
+
+  - title: What if I need the books sooner?
+    content: |
+      You are welcome to pick up the books or arrange hand-delivery.
+      Please make a note of these arrangements on your order so we can contact you for hand-off when your order is ready.
+      If that doesn’t work for you, we may be able to courier the books, at your cost. 
+      Please contact thestudy.sales@gmail.com to inquire about this possibility.
+
+  - title: Do you ship internationally?
+    content: |
+      Yes. Due to the cost of international shipping, you will need to pay for postage.
+      Please do not place your order through our website; rather, email your book request to us so we can let you know what the final cost will be.
+
+  - title: Is there a less expensive way for me to get the book?
+    content: Our newer books are offered in ePub format; all the same great information and no waiting for the mail!
+
+  - title: I've heard rumours about book discounts. Are they true?
+    content: |
+      Yes! There are 3 ways you can get a book at discount prices.
+      1. Our new books are offered at a $1 discount for a limited time after they are first released.  Join our mailing list to hear when new books are released!
+      2. You will receive a discount of $1 per book if you order 10 or more books. Note that these discounts cannot be combined.
+      3. We have a limited supply of books offered at a discount.  These are listed under the "Bargain Books" header.
+
+  - title: It's been 3 weeks. Where is my book?
+    content: Email your concern to thestudy.sales@gmail.com and include your name, address and invoice \#.
+
+  - title: I ordered too many copies. Can I return a book?
+    content: |
+      Books can be returned for a full refund up to 90 days after purchase.
+      They must be returned in the same condition as they were shipped.
+      The cost to return the book(s) will be borne by the customer.
+      Ship to: **The Study, Box 445, Fergus, ON, N1M 3E2** and include your name and address as well as your invoice \#.
+
+  - title: There's something wrong with my book. What should I do?
+    content: |
+      Books that are faulty in materials or workmanship will be replaced at The Study's cost for up to a year after purchase.
+      Email your concern, along with a photo of the problem to thestudy.sales@gmail.com
+
+  - title: Um, I don't think I got charged tax.
+    content: You're right! You do not need to pay tax since The Study is a not-for-profit organization.
+
+  - title: I would like to pay by cheque or e-transfer. How do I place my order?
+    content: |
+      Please email your order to thestudy.sales@gmail.com.
+      Remember to include your name, email and shipping address (phone number optional).
+
+  - title: How do I pay by credit card?
+    content: |
+      To pay by credit card, click the link "**Check Out with PayPal**".
+      This will take you to the PayPal website, where you can pay securely using either your credit card or your PayPal account.
+      ​You do not need to have a Paypal account to pay with a credit card.​

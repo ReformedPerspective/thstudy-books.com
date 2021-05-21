@@ -1,0 +1,28 @@
+@import './custom/variables';
+
+// Bootstrap and Bootstrap icons
+@import "./bootstrap/bootstrap.scss";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+
+// header CSS
+/* cart */
+.cart {
+  background: transparent;
+  border: 0;
+  position: relative;
+  size: 2em;
+
+  .badge {
+    position: absolute;
+    top: -5px;
+    border-radius: 50%;
+    right: -10px;
+  }
+}
+
+// homepage
+#banner {
+  .row {
+    background: transparentize($color: $dark, $amount: 0.95) !important;
+  }
+}

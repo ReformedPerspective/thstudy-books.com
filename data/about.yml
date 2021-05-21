@@ -1,0 +1,42 @@
+############################# contact info ################
+contact:
+  enable: true
+  # office
+  office:
+    title: "Mailing Address"
+    address:
+      street: "Box 445"
+      town: "Fergus, Ontario, Canada"
+      postal: "N1M 3E2"
+    # other information comes from "config.toml"
+
+  # second column
+  contacts:
+    - 
+      title: "Feedback"
+      content: |
+        Send us helpful feedback
+        or extra resources.
+        thestudy.books@gmail.com
+    - 
+      title: "Sales"
+      content: |
+        Janine Dykstra
+        thestudy.sales@gmail.com
+    - 
+      title: "Treasurer"
+      content: |
+        Teresa Jongsma
+        thestudy.treasurer@gmail.com​
+        phone 519-787-2470​
+    - 
+      title: "Board"
+      content: |
+        Elsa DeGelder
+        ​[thestudy.board@gmail.com](mailto:thestudy.board@gmail.com)
+
+
+
+####################### google map ########################
+map:
+  enable: false

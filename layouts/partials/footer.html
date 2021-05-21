@@ -1,0 +1,165 @@
+<footer class="section">
+  <div class="container">
+    <div class="row border-bottom pb-5 justify-content-between">
+      <div class="col-12 text-center section-sm">
+        <a href="{{ site.BaseURL }}"><img src="{{ site.Params.logo | absURL }}" class="img-fluid"
+            alt="{{ site.Title }}"></a>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <h5 class="mb-4 text-primary">The Study Links</h5>
+        <ul class="list-unstyled">
+          {{ range site.Menus.footer }}
+          <li class="mb-3"><a href="{{ .URL | absURL }}">{{ .Name }}</a></li>
+          {{ end }}
+        </ul>
+      </div>
+      <div class="col-md-4 col-sm-6 text-primary">
+        <h5 class="mb-4">Connect With Us</h5>
+        <ul class="list-unstyled mb-5">
+          <li class="mb-3">
+            <a href="tel:{{ site.Params.mobile }}">
+              <i class="bi-telephone text-primary mr-2"></i>{{ site.Params.mobile }}
+            </a>
+          </li>
+          <li class="">
+            <a href="mailto:{{ site.Params.email }}">
+              <i class="bi-mailbox text-primary mr-2"></i>{{ site.Params.email }}
+            </a>
+          </li>
+          <!--li class="mb-3">
+            <i class="bi-geo text-primary mr-2"></i>{{ site.Params.location }}
+          </li-->
+        </ul>
+        <!-- Social Icons -->
+        <ul class="list-inline">
+          {{ range site.Params.social }}
+          <li class="list-inline-item"><a href="{{ .link | safeURL }}"><i class="{{ .icon }} text-primary"></i></a></li>
+          {{ end }}
+        </ul>
+      </div>
+      <div class="col-lg-4 col-md-5 text-primary">
+        <h5 class="mb-4">Send us a message</h5>
+        <form name="contact" action="{{ site.Params.contact.formAction }}" method="POST" netlify>
+          <div class="form-group">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text bg-primary text-white">
+                  <i class="bi-person"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control border-primary" id="name" name="name" placeholder="Your Name">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text bg-primary text-white">
+                  <i class="bi-envelope"></i>
+                </span>
+              </div>
+              <input type="email" class="form-control border-primary" id="email" name="email" placeholder="Your Email">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text bg-primary text-white">
+                  <i class="bi-chat-right-text"></i>
+                </span>
+              </div>
+              <textarea name="message" id="message" class="form-control border-primary" placeholder="Your Message"></textarea>
+            </div>
+          </div>
+          <button type="submit" value="send" class="btn btn-block btn-outline-primary rounded">Send Now</button>
+        </form>
+      </div>
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <img class="img-fluid" width="50px" src="https://press.reformedperspective.ca/wp-content/uploads/2020/04/RPPress-logo-final.png" alt="RP Press Logo">
+          For more Reformed books and resources, visit <a href="https://press.reformedperspective.ca/">Reformed Perspective Press</a>.
+          
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center py-4">
+        {{ site.Params.copyright | markdownify  }}
+      </div>
+    </div>
+  </div>
+</footer>
+
+{{ with site.Params.snipcartApiKey }}
+<script async src="https://cdn.snipcart.com/themes/v3.2.0/default/snipcart.js"></script>
+{{ "<!-- Snipcart -->" | safeHTML }}
+<div id="snipcart" data-api-key="{{ . }}" hidden data-config-modal-style="side"></div>
+{{ end }}
+
+{{ "<!-- JS Plugins -->" | safeHTML }}
+{{ range site.Params.plugins.js}}
+<script src="{{ .link | absURL }}" integrity="{{ .integrity }}" crossorigin="{{ .crossorigin }}"></script>
+{{ end }}
+
+{{ "<!-- Main Script -->" | safeHTML }}
+{{ $script := resources.Get "js/script.js" | minify}}
+<script src="{{ $script.Permalink }}"></script>
+
+{{ if site.Params.google.enable }}
+{{ with site.Params.googleAnalitycsID }}
+{{ "<!-- Google Analytics -->" | safeHTML }}
+<script>
+(function (i, s, o, g, r, a, m) {
+  i['GoogleAnalyticsObject'] = r;
+  i[r] = i[r] || function () {
+    (i[r].q = i[r].q || []).push(arguments)
+  }, i[r].l = 1 * new Date();
+  a = s.createElement(o),
+    m = s.getElementsByTagName(o)[0];
+  a.async = 1;
+  a.src = g;
+  m.parentNode.insertBefore(a, m)
+})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+ga('create', '{{ . }}', 'auto');
+ga('send', 'pageview');
+</script>
+{{ end }}
+{{ end }}
+
+{{ if site.Params.rating.enable }}
+{{ "<!-- Product Ratings -->" | safeHTML }}
+<script>
+(function (d, t, e, m) {
+  // Async Rating-Widget initialization
+  window.RW_Async_Init = function () {
+    RW.init({
+      huid: "{{ site.Params.rating.websiteID }}",
+      uid: "{{ site.Params.rating.publicKey }}",
+      source: "website",
+      options: {
+        "size": "medium",
+        "style": "oxygen",
+        "isDummy": false
+      }
+    });
+    RW.render();
+  };
+  // Append Rating-Widget JavaScript library
+  var rw, s = d.getElementsByTagName(e)[0],
+    id = "rw-js",
+    l = d.location,
+    ck = "Y" + t.getFullYear() +
+    "M" + t.getMonth() + "D" + t.getDate(),
+    p = l.protocol,
+    f = ((l.search.indexOf("DBG=") > -1) ? "" : ".min"),
+    a = ("https:" == p ? "secure." + m + "js/" : "js." + m);
+  if (d.getElementById(id)) return;
+  rw = d.createElement(e);
+  rw.id = id;
+  rw.async = true;
+  rw.type = "text/javascript";
+  rw.src = p + "//" + a + "external" + f + ".js?ck=" + ck;
+  s.parentNode.insertBefore(rw, s);
+}(document, new Date(), "script", "rating-widget.com/"));
+</script>
+{{ end }}

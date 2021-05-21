@@ -1,0 +1,97 @@
+{{ define "main" }}
+
+<section class="section pt-4">
+  <div class="container">
+    <div class="row justify-content-centre">
+      <div class="col-lg-10 mx-auto">
+        <article class="mb-10 text-primary">
+          <h2>{{ .Title }}</h2>
+          <h3>{{ .Params.subtitle }}</h3>
+          <ul class="list-inline mb-4">
+            <li class="list-inline-item"><i class="bi-pencil mr-2"></i> {{ .Params.Author }}</li>
+            <li class="list-inline-item"><i class="bi-calendar mr-2"></i> {{ .Params.PublishYear }}</li>
+            <li class="list-inline-item"><i class="bi-files mr-2"></i> {{ .Params.pageCount }} pages</li>
+            {{ if .Params.price  }}
+              <li class="list-inline-item">
+                <i class="bi-wallet mr-2"></i> {{ site.Params.currencySymbol }}{{ .Params.price }}
+              </li>
+            {{ end }}
+            {{ if .Params.childID }}
+              {{ $ePubID := .Params.childID | string }}
+              {{ $ePubPath := replace "/products/THISID.md" "THISID" $ePubID }}
+              {{ with .Site.GetPage $ePubPath }}
+                <li class="list-inline-item">
+                  <i class="bi-bookmark-star text-primary mr-2"> ePub {{ .Site.Params.currencySymbol }}{{ .Params.price }}</i>
+                </li>
+              {{ end }}
+            {{ end }}
+          </ul>
+        </article>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-4">
+        <img src="{{ .Params.cover | absURL }}" alt="{{ .Title }}" class="img-fluid rounded mb-4">
+      </div>
+
+      <div class="col-lg-8">
+        <div id="accordion">
+          <div class="mb-3 lead">
+            <h3 class="align-self-center text-primary">
+              <a href="#collapse1"  data-toggle="collapse">Book Description</a>
+            </h3>
+            <div id="collapse1" class="collapse show" data-parent="#accordion">
+              {{ .Params.Description | markdownify }}
+            </div>
+          </div>
+          <div class="mb-3">
+            {{ if .Content }}
+              <h3 class="text-primary">
+                <a href="#collapse2" data-toggle="collapse">About the Author</a>
+              </h3>
+              <div id="collapse2" class="collapse lead" data-parent="#accordion">
+                {{ .Content }}
+              </div>
+            {{ end }}
+          </div>
+          <div class="mb-3">
+            <h3 class="text-primary">
+              <a href="#collapse3" data-toggle="collapse">Paper (Physical book) Format</a>
+            </h3>
+            <div id="collapse3" class="collapse" data-parent="#accordion">
+              <p>Use this button to purchase the Paper version. ({{ .Site.Params.currencySymbol }}{{ .Params.price }})</p>
+              <button class="snipcart-add-item btn btn-outline-primary mb-20" data-item-id="{{ .Params.ProductID }}"
+                data-item-name="{{ .Params.Title }}" {{ .Params.cover }} data-item-image="{{ .Params.cover | absURL }}"
+                data-item-price="{{ .Params.Price }}" data-item-url="{{ .Permalink }}" data-item-description="{{ .Params.Description }}">
+                Add Hardcopy to cart
+              </button>
+            </div>
+          </div>
+          {{ if .Params.childID }}
+            {{ $ePubID := .Params.childID | string }}
+            {{ $ePubPath := replace "/products/THISID.md" "THISID" $ePubID }}
+            {{ with .Site.GetPage $ePubPath }}
+              <div class="">
+                <h3 class="text-primary">
+                  <a href="#collapse4" data-toggle="collapse">Digital (ePub) Format</a>
+                </h3>
+                <div id="collapse4" class="collapse" data-parent="#accordion">
+                  <p>There is a Digital (ePub) version of this book available. Use this button to purchase it ({{ .Site.Params.currencySymbol }}{{ .Params.price }}).</p>
+                  <button class="snipcart-add-item btn btn-outline-primary" data-item-id="{{ .Params.ProductID }}"
+                    data-item-name="{{ .Params.Title }}" {{ .Params.cover }} data-item-image="{{ .Params.cover | absURL }}"
+                    data-item-price="{{ .Params.Price }}" data-item-url="{{ .Permalink }}" data-item-description="{{ .Params.Description }}"
+                    data-item-file-guid="{{ .Params.snipcartUUID }}">
+                    Add ePub to cart
+                  </button>
+                </div>
+              </div>
+            {{ end }}
+          {{ end }}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

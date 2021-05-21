@@ -1,0 +1,72 @@
+{{ define "main" }}
+
+   <!-- BANNER -->
+   {{ if site.Data.homepage.banner.enable }}
+   {{ with site.Data.homepage.banner }}
+   <section id="banner">
+      <div class="container pt-4">
+         <div class="row align-items-center justify-content-between">
+
+            <div class="col-lg-3 col-md-2 order-md-1 order-sm-2 mx-auto">
+               <img src="{{ .image | absURL }}" alt="Banner Image" class="img-fluid">
+            </div>
+
+            <div class="col-lg-4 col-md-6 text-center order-md-2 order-sm-1">
+               <h1 class="text-primary">{{ .title }}</h1>
+               <p class="lead">{{ .content | markdownify }}</p>
+               {{ if .button.enable }}
+               {{ with .button }}
+                  <a href="{{ .link }}" class="btn btn-primary d-block">{{ .label }}</a>
+               {{ end }}
+               {{ end }}
+            </div>
+
+            <div class="col-lg-3 col-md-2 py-3 order-md-3 order-sm-3 mx-auto">
+               <img src="{{ .image2 | absURL }}" alt="Banner Image 2" class="img-fluid">
+            </div>
+         </div>
+      </div>
+   </section>
+   {{ end }}
+   {{ end }}
+
+   <!-- FEATURED -->
+   {{ if site.Data.homepage.products.enable }}
+   <section id="featured" class="py-5">
+      <div class="container">
+         <div class="row justify-content-center">
+            <div class="col-12 text-center mb-4">
+               {{ with site.Data.homepage.products }}
+               <h2 class="display-4 text-primary">{{ .title | markdownify }}</h2>
+               {{ end }}
+               <hr class="border-secondary">
+            </div>
+
+
+            {{ range  where .Site.RegularPages ".Params.categories" "intersect" (slice "Featured") }}
+            {{ if not (.Params.parentID) }}
+            <div class="col-lg-3 col-sm-6 mb-4">
+               <div class="card border-0 text-center">
+                  <a href="{{ .Permalink }}">
+                     <img src="{{ .Params.cover | absURL }}" alt="{{ .Title }}" class="card-img">
+                  </a>
+                  <div class="card-body">
+                     <!--a href="{{ .Permalink }}" class="h5 card-title">{{ .Title }}</a-->
+                     <div class="">
+                        <span class="lead text-primary">Price: {{ site.Params.currencySymbol }}{{ .Params.Price }}</span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            {{ end }}
+            {{ end }}
+
+
+         </div>
+      </div>
+   </section>
+   {{ end }}
+
+   {{ partial "netlifycms.html" }}
+
+{{ end }}
