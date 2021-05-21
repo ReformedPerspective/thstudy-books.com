@@ -5,8 +5,8 @@
     <div class="row justify-content-centre">
       <div class="col-lg-10 mx-auto">
         <article class="mb-10 text-primary">
-          <h2>{{ .Title }}</h2>
-          <h3>{{ .Params.subtitle }}</h3>
+          <h2 class="display-4">{{ .Title }}</h2>
+          <h4>{{ .Params.subtitle }}</h3>
           <ul class="list-inline mb-4">
             <li class="list-inline-item"><i class="bi-pencil mr-2"></i> {{ .Params.Author }}</li>
             <li class="list-inline-item"><i class="bi-calendar mr-2"></i> {{ .Params.PublishYear }}</li>
@@ -56,10 +56,10 @@
           </div>
           <div class="mb-3">
             <h3 class="text-primary">
-              <a href="#collapse3" data-toggle="collapse">Paper (Physical book) Format</a>
+              <a href="#collapse3" data-toggle="collapse">Paper (Physical book) Format - {{ .Site.Params.currencySymbol }}{{ .Params.price }}</a>
             </h3>
             <div id="collapse3" class="collapse" data-parent="#accordion">
-              <p>Use this button to purchase the Paper version. ({{ .Site.Params.currencySymbol }}{{ .Params.price }})</p>
+              <p>Use the button below to purchase the Paper version. If there is a digital version (i.e. ePub) there will be another section below this one.</p>
               <button class="snipcart-add-item btn btn-outline-primary mb-20" data-item-id="{{ .Params.ProductID }}"
                 data-item-name="{{ .Params.Title }}" {{ .Params.cover }} data-item-image="{{ .Params.cover | absURL }}"
                 data-item-price="{{ .Params.Price }}" data-item-url="{{ .Permalink }}" data-item-description="{{ .Params.Description }}">
@@ -73,10 +73,10 @@
             {{ with .Site.GetPage $ePubPath }}
               <div class="">
                 <h3 class="text-primary">
-                  <a href="#collapse4" data-toggle="collapse">Digital (ePub) Format</a>
+                  <a href="#collapse4" data-toggle="collapse">Digital (ePub) Format - {{ .Site.Params.currencySymbol }}{{ .Params.price }}</a>
                 </h3>
                 <div id="collapse4" class="collapse" data-parent="#accordion">
-                  <p>There is a Digital (ePub) version of this book available. Use this button to purchase it ({{ .Site.Params.currencySymbol }}{{ .Params.price }}).</p>
+                  <p>There is a digital (i.e. ePub) version of this book available. Use the button below to purchase it.</p>
                   <button class="snipcart-add-item btn btn-outline-primary" data-item-id="{{ .Params.ProductID }}"
                     data-item-name="{{ .Params.Title }}" {{ .Params.cover }} data-item-image="{{ .Params.cover | absURL }}"
                     data-item-price="{{ .Params.Price }}" data-item-url="{{ .Permalink }}" data-item-description="{{ .Params.Description }}"
