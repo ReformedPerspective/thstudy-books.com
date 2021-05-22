@@ -4,8 +4,8 @@ backend:
 
 media_folder: "static/uploads"
 public_folder: "/uploads"
-site_url: https://thestudy.coolnet.xyz
-logo_url: https://thestudy.coolnet.xyz/images/logo.png
+site_url: https://thestudy-books.com
+logo_url: https://thestudy-books.com/images/logo.png
 
 collections:
   - name: "products"
