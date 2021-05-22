@@ -1,5 +1,5 @@
 ######################## default configuration ####################
-baseURL = "https://thestudybooks.netlify.app"
+baseURL = "https://thestudy-books.com"
 languageCode = "en"
 title = "The Study - Canadian Reformed non-profit"
 summaryLength = "20"
@@ -159,7 +159,7 @@ location = "Fergus, Ontario, Canada"
 # copyright
 copyright = "| Copyright &copy; 2021 [Reformed Perspective](https://reformedperspective.ca) All Rights Reserved |"
 # Snipcart Credentials
-snipcartApiKey = "OGUxZmFlZGEtY2NkNy00MWU2LTk2N2MtNTE2ODcwYzRiNzRjNjM3NTMxNjE5NTU5MTMwOTgy"
+snipcartApiKey = "***REMOVED***"
 currencySymbol = "$"
 
   # Preloader
