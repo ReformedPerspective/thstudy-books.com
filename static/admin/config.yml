@@ -4,7 +4,7 @@ backend:
 
 media_folder: "static/uploads"
 public_folder: "/uploads"
-site_url: https://thestudy-books.com
+site_url: https://thestudy-books.com/admin/#
 logo_url: https://thestudy-books.com/images/logo.png
 
 collections:
