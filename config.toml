@@ -1,10 +1,10 @@
 ######################## default configuration ####################
-baseURL = "https://thestudy.coolnet.xyz"
+baseURL = "/"
 languageCode = "en"
 title = "The Study - Canadian Reformed non-profit"
 theme = ""
 summaryLength = "20"
-paginate = 10
+paginate = 12
 disqusShortname = ""
 
 ############################# Plugins ##############################
