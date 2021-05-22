@@ -2,7 +2,9 @@
   <div class="container">
     <div class="row">
       {{ if .Params.banner }}
-      <img class="img-fluid" src="{{ .Params.banner_img }}" alt="banner">
+      <div class="col-12 mb-5">
+        <img class="img-fluid" src="{{ .Params.banner_img }}" alt="banner">
+      </div>
       {{ end }}
       <div class="col-12">
         <h2 class="text-primary">{{ .Title }}</h2>

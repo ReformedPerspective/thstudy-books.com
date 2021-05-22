@@ -31,8 +31,33 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-lg-4">
-        <img src="{{ .Params.cover | absURL }}" alt="{{ .Title }}" class="img-fluid rounded mb-4">
+        {{ if .Params.rearCover }}
+        <a href="#" data-toggle="modal" data-target="#rearCover">
+        {{ end }}
+          <img src="{{ .Params.cover | absURL }}" alt="{{ .Title }}" class="img-fluid rounded mb-4">
+        {{ if .Params.rearCover }}
+        </a>
+        {{ end }}
       </div>
+
+      {{ if .Params.rearCover }}
+      <div class="modal" id="rearCover">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">{{ .Title }} (Rear Cover)</h5>
+              <button class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+              <img src="{{ .Params.rearCover }}" alt="Rear Cover" class="img-fluid">         
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{ end }}
 
       <div class="col-lg-8">
         <div id="accordion">
