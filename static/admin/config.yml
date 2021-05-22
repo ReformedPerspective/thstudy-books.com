@@ -86,7 +86,13 @@ collections:
         widget: "image"
         media_folder: "/static/uploads/covers"
         allow_multiple: false
-        hint: "Uploaded cover image. Please scale image too 400x600 before uploading."
+        hint: "Uploaded cover image. Please scale image to 400x600 before uploading."
+      - label: "Rear Cover Image"
+        name: "rearCover"
+        widget: "image"
+        media_folder: "/static/uploads/covers"
+        allow_multiple: false
+        hint: "Uploaded Rear cover image. Please scale image to 400x600 before uploading."
       - label: "Author(s)"
         name: "author"
         widget: "string"
