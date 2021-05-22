@@ -1,5 +1,5 @@
 ######################## default configuration ####################
-baseURL = "https://thestudy.coolnet.xyz"
+baseURL = "https://thestudybooks.netlify.app"
 languageCode = "en"
 title = "The Study - Canadian Reformed non-profit"
 theme = ""
