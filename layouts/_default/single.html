@@ -34,12 +34,19 @@
         {{ if .Params.rearCover }}
         <a href="#" data-toggle="modal" data-target="#rearCover">
         {{ end }}
-          <img src="{{ .Params.cover | absURL }}" alt="{{ .Title }}" class="img-fluid rounded mb-4">
+          <img src="{{ .Params.cover | absURL }}" alt="{{ .Title }}" class="img-fluid rounded mb-4" data-toggle="tooltip" data-placement="right" data-html="true"
+          title="<h4>Rear Cover view</h4><p>Click on cover image to view the rear cover.</p>">
         {{ if .Params.rearCover }}
+        </a>
+        {{ end }}
+        {{ if .Params.preview }}
+        <a href="{{ .Params.preview }}" class="btn btn-outline-primary btn-block" role="button">
+          <i class="bi-file-pdf mr-2" style="font-size: 1.5rem;"> Click to View PDF Preview</i>
         </a>
         {{ end }}
       </div>
 
+      {{/*  REAR COVER MODAL  */}}
       {{ if .Params.rearCover }}
       <div class="modal" id="rearCover">
         <div class="modal-dialog">
@@ -49,7 +56,7 @@
               <button class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-              <img src="{{ .Params.rearCover }}" alt="Rear Cover" class="img-fluid">         
+              <img src="{{ .Params.rearCover }}" alt="Rear Cover" class="img-fluid w-100">         
             </div>
             <div class="modal-footer">
               <button class="btn btn-primary" data-dismiss="modal">Close</button>
