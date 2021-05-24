@@ -31,14 +31,16 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-lg-4">
+        <!-- Only show rear cover view if there is one -->
         {{ if .Params.rearCover }}
         <a href="#" data-toggle="modal" data-target="#rearCover">
-        {{ end }}
           <img src="{{ .Params.cover | absURL }}" alt="{{ .Title }}" class="img-fluid rounded mb-4" data-toggle="tooltip" data-placement="right" data-html="true"
-          title="<h4>Rear Cover view</h4><p>Click on cover image to view the rear cover.</p>">
-        {{ if .Params.rearCover }}
+          title="<h4 class='text-primary'><strong>Rear Cover View</strong></h4><p class='text-secondary'>Click on cover image to view the rear cover.</p>">
         </a>
+        {{ else }}
+        <img src="{{ .Params.cover | absURL }}" alt="{{ .Title }}" class="img-fluid rounded mb-4">
         {{ end }}
+        <!-- Only show a PDF preview link if there is one -->
         {{ if .Params.preview }}
         <a href="{{ .Params.preview }}" class="btn btn-outline-primary btn-block" role="button">
           <i class="bi-file-pdf mr-2" style="font-size: 1.5rem;"> Click to View PDF Preview</i>
