@@ -6,7 +6,7 @@
       <div class="col-lg-10 mx-auto">
         <article class="mb-10 text-primary">
           <h2 class="display-4">{{ .Title }}</h2>
-          <h4>{{ .Params.subtitle }}</h3>
+          <h4 class="text-secondary">{{ .Params.subtitle }}</h3>
           <ul class="list-inline mb-4">
             <li class="list-inline-item"><i class="bi-pencil mr-2"></i> {{ .Params.Author }}</li>
             <li class="list-inline-item"><i class="bi-calendar mr-2"></i> {{ .Params.PublishYear }}</li>
@@ -35,7 +35,7 @@
         {{ if .Params.rearCover }}
         <a href="#" data-toggle="modal" data-target="#rearCover">
           <img src="{{ .Params.cover | absURL }}" alt="{{ .Title }}" class="img-fluid rounded mb-4" data-toggle="tooltip" data-placement="right" data-html="true"
-          title="<h4 class='text-primary'><strong>Rear Cover View</strong></h4><p class='text-secondary'>Click on cover image to view the rear cover.</p>">
+          title="<h4 class=''><strong>Rear Cover View</strong></h4><p class='text-secondary'>Click on cover image to view the rear cover.</p>">
         </a>
         {{ else }}
         <img src="{{ .Params.cover | absURL }}" alt="{{ .Title }}" class="img-fluid rounded mb-4">
