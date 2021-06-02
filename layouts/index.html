@@ -47,11 +47,11 @@
             {{ if not (.Params.parentID) }}
             <div class="col-lg-3 col-sm-6 mb-4">
                <div class="card border-0 text-center">
-                  <a href="{{ .Permalink }}">
+                  <a href="{{ .RelPermalink }}">
                      <img src="{{ .Params.cover | absURL }}" alt="{{ .Title }}" class="card-img">
                   </a>
                   <div class="card-body">
-                     <!--a href="{{ .Permalink }}" class="h5 card-title">{{ .Title }}</a-->
+                     <!--a href="{{ .RelPermalink }}" class="h5 card-title">{{ .Title }}</a-->
                      <div class="">
                         <span class="lead text-primary">Price: {{ site.Params.currencySymbol }}{{ .Params.Price }}</span>
                      </div>

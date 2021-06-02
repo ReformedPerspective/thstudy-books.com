@@ -9,7 +9,7 @@
       {{ range $paginator.Pages }}
       <div class="col-lg-3 col-sm-6 mb-4">
         <div class="card border-0 text-center">
-          <a href="{{ .Permalink }}">
+          <a href="{{ .RelPermalink }}">
             <img src="{{ .Params.cover | absURL }}" alt="{{ .Title }}" class="card-img-top ">
           </a>
           <div class="card-body">
@@ -19,10 +19,10 @@
               {{ end }}
               <span class="lead text-primary">{{ site.Params.currencySymbol }}{{ .Params.Price }}</span>
             </div>
-              <a href="{{ .Permalink }}" class="btn btn-block btn-outline-primary">{{ .Title }}</a>
+              <a href="{{ .RelPermalink }}" class="btn btn-block btn-outline-primary">{{ .Title }}</a>
               {{/*<button class="snipcart-add-item btn btn-sm btn-outline-primary mb-20" data-item-id="{{ .Params.ProductID }}"
                 data-item-name="{{ .Params.Title }}" {{ .Params.cover }} data-item-image="{{ .Params.cover | absURL }}"
-                data-item-price="{{ .Params.Price }}" data-item-url="{{ .Permalink }}" data-item-description="{{ .Params.Description }}"
+                data-item-price="{{ .Params.Price }}" data-item-url="{{ .RelPermalink }}" data-item-description="{{ .Params.Description }}"
                 {{ if .Params.epubPrice }}
                 data-item-custom1-name="Format" data-item-custom1-options='{{ $fmtBase := "Paper|Digital (ePub)[-PRICE]" }}
                   {{ $bookCost := .Params.price | float }}

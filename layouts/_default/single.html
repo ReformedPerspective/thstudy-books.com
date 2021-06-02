@@ -96,7 +96,7 @@
               <p>Use the button below to purchase the Paper version. If there is a digital version (i.e. ePub) there will be another section below this one.</p>
               <button class="snipcart-add-item btn btn-outline-primary mb-20" data-item-id="{{ .Params.ProductID }}"
                 data-item-name="{{ .Params.Title }}" {{ .Params.cover }} data-item-image="{{ .Params.cover | absURL }}"
-                data-item-price="{{ .Params.Price }}" data-item-url="{{ .Permalink }}" data-item-description="{{ .Params.Description }}">
+                data-item-price="{{ .Params.Price }}" data-item-url="{{ .RelPermalink }}" data-item-description="{{ .Params.Description }}">
                 Add Hardcopy to cart
               </button>
             </div>
@@ -113,7 +113,7 @@
                   <p>There is a digital (i.e. ePub) version of this book available. Use the button below to purchase it.</p>
                   <button class="snipcart-add-item btn btn-outline-primary" data-item-id="{{ .Params.ProductID }}"
                     data-item-name="{{ .Params.Title }}" {{ .Params.cover }} data-item-image="{{ .Params.cover | absURL }}"
-                    data-item-price="{{ .Params.Price }}" data-item-url="{{ .Permalink }}" data-item-description="{{ .Params.Description }}"
+                    data-item-price="{{ .Params.Price }}" data-item-url="{{ .RelPermalink }}" data-item-description="{{ .Params.Description }}"
                     data-item-file-guid="{{ .Params.snipcartUUID }}">
                     Add ePub to cart
                   </button>
