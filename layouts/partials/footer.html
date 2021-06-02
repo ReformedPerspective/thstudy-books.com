@@ -102,7 +102,7 @@
 {{ end }}
 
 {{ "<!-- Main Script -->" | safeHTML }}
-{{ $script := resources.Get "js/script.js" | minify}}
+{{ $script := resources.Get "js/script.js" | minify | fingerprint}}
 <script src="{{ $script.Permalink }}"></script>
 
 {{ if site.Params.google.enable }}
@@ -168,7 +168,3 @@ ga('send', 'pageview');
 <script>
   $('[data-toggle="tooltip"]').tooltip();
 </script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.0/fuse.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js"></script>
-<script src="{{ "js/search.js" | absURL }}"></script>

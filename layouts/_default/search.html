@@ -4,25 +4,21 @@
      <div class="row">
        <div class="form-group">
           <label class="text-primary" for="search">Enter search query:</label>
-          <form action="{{ "search" | absURL }}">
+          <form action="" onSubmit="return searchButton()">
             <input type="text" class="form-control border-primary" id="search-query" name="s" placeholder="search query"/>
           </form>
           <small class="form-text text-muted">You can search title, subtitle, author, description, publisher and category</small>
        </div>
       </div>
       <div class="row">
-       <div id="search-results">
-         <h2 class="text-primary">Matching Books</h3>
-         <hr class="border-primary">
+       <div id="search-results" class="col-md-10">
+         {{/* Empty div waiting for search results  */}}
        </div>
      </div>
   </div>
 </section>
-<!-- this template is sucked in by search.js and appended to the search-results div above. So editing here will adjust style -->
-<script id="search-result-template" type="text/x-js-template">
-    <div id="summary-${key}">
-      <h4><a href="${link}">${title}</a></h4>
-      <p>${snippet}</p>
-    </div>
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.min.js" integrity="sha512-KnvCNMwWBGCfxdOtUpEtYgoM59HHgjHnsVGSxxgz7QH1DYeURk+am9p3J+gsOevfE29DV0V+/Dd52ykTKxN5fA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{{ $searchScript := resources.Get "js/search.js" | minify | fingerprint}}
+<script src="{{ $searchScript.Permalink }}"></script>
 {{ end }}
