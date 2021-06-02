@@ -20,9 +20,22 @@ const fuseOptions = {
 };
 
 ///////////////////////////////////////////////////////////////////////
+// initialize a listener for the search box
+const searchInput = document.getElementById("search-query");
+// Execute a function when the user releases a key on the keyboard
+searchInput.addEventListener("keyup", event => {
+  //  Check for the "Enter" key on the keyboard
+  if (event.code === 'Enter') {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("search-button").click();
+  }
+});
+
 var searchQuery = param("s");
 if(searchQuery){
-  document.getElementById('search-query').value = searchQuery;
+  searchInput.value = searchQuery;
   executeSearch(searchQuery);
 }else {
   document.getElementById('search-results').innerHTML = "<p class='text-primary'>Please enter a word or phrase above</p>";
@@ -36,11 +49,12 @@ function executeSearch(searchQuery) {
     const pages = data;
     const fuse = new Fuse(pages, fuseOptions);
     const result = fuse.search(searchQuery);
+    console.log(result);
     const resultsItem = document.getElementById('search-results');
     resultsItem.innerHTML = "";
     if (result.length > 0) {
       resultsItem.innerHTML = `
-      <h2 class='text-primary'>Matching Books</h2>
+      <h2 class='text-primary mt-3'>Matching Books</h2>
       <hr class='border-secondary'>
       `;
 
@@ -124,9 +138,9 @@ function param(name) {
 }
 
 function searchButton() {
-  searchQuery = document.getElementById("search-query").value;
+  searchQuery = searchInput.value;
   if(searchQuery){
-    document.getElementById("search-query").value = searchQuery;
+    searchInput.value = searchQuery;
     executeSearch(searchQuery);
   }else {
     document.getElementById("search-results").innerHTML = "<p class='text-dark'>Please enter a word or phrase above</p>"

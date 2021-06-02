@@ -26,3 +26,8 @@
     background: transparentize($color: $dark, $amount: 0.95) !important;
   }
 }
+
+// Styling for markjs highlighting
+mark {
+  background: $secondary;
+}

@@ -1,20 +1,33 @@
 {{ define "main" }}
 <section class="resume-section p-3 p-lg-5">
   <div class="container">
-     <div class="row">
-       <div class="form-group">
+    <div class="row">
+      
+      <div class="col-md-6">
+        <label class="text-primary" for="search">Enter search query:</label>
+        <div class="input-group">
+          <input class="form-control border-primary" type="text" id="search-query" name="s" placeholder="search query..." onSubmit="return searchButton()">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary text-dark" id="search-button" type="button" onClick="return searchButton()">Search</button>
+          </div>
+        </div>
+        <small class="input-text text-muted">You can search title, subtitle, author, description, publisher and category</small>
+      </div>
+      
+      {{/*        <div class="form-group"> 
           <label class="text-primary" for="search">Enter search query:</label>
           <form action="" onSubmit="return searchButton()">
             <input type="text" class="form-control border-primary" id="search-query" name="s" placeholder="search query"/>
           </form>
           <small class="form-text text-muted">You can search title, subtitle, author, description, publisher and category</small>
-       </div>
+      </div>  */}}
+      
+    </div>
+    <div class="row">
+      <div id="search-results" class="col-md-10">
+        {{/* Empty div waiting for search results  */}}
       </div>
-      <div class="row">
-       <div id="search-results" class="col-md-10">
-         {{/* Empty div waiting for search results  */}}
-       </div>
-     </div>
+    </div>
   </div>
 </section>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.min.js" integrity="sha512-KnvCNMwWBGCfxdOtUpEtYgoM59HHgjHnsVGSxxgz7QH1DYeURk+am9p3J+gsOevfE29DV0V+/Dd52ykTKxN5fA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
