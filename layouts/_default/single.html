@@ -40,6 +40,7 @@
         {{ else }}
         <img src="{{ .Params.cover | absURL }}" alt="{{ .Title }}" class="img-fluid rounded mb-4">
         {{ end }}
+        
         <!-- Only show a PDF preview link if there is one -->
         {{ if .Params.preview }}
         <a href="{{ .Params.preview }}" class="btn btn-outline-primary btn-block" role="button">
@@ -47,26 +48,6 @@
         </a>
         {{ end }}
       </div>
-
-      {{/*  REAR COVER MODAL  */}}
-      {{ if .Params.rearCover }}
-      <div class="modal" id="rearCover">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">{{ .Title }} (Rear Cover)</h5>
-              <button class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body">
-              <img src="{{ .Params.rearCover }}" alt="Rear Cover" class="img-fluid w-100">         
-            </div>
-            <div class="modal-footer">
-              <button class="btn btn-primary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      {{ end }}
 
       <div class="col-lg-8">
         <div id="accordion">
@@ -78,16 +59,18 @@
               {{ .Params.Description | markdownify }}
             </div>
           </div>
-          <div class="mb-3">
-            {{ if .Content }}
+
+          {{ if .Content }}
+            <div class="mb-3">
               <h3 class="text-primary">
                 <a href="#collapse2" data-toggle="collapse">About the Author</a>
               </h3>
               <div id="collapse2" class="collapse lead" data-parent="#accordion">
                 {{ .Content }}
               </div>
-            {{ end }}
-          </div>
+            </div>
+          {{ end }}
+
           <div class="mb-3">
             <h3 class="text-primary">
               <a href="#collapse3" data-toggle="collapse">Paper (Physical book) Format - {{ .Site.Params.currencySymbol }}{{ .Params.price }}</a>
@@ -105,7 +88,7 @@
             {{ $ePubID := .Params.childID | string }}
             {{ $ePubPath := replace "/products/THISID.md" "THISID" $ePubID }}
             {{ with .Site.GetPage $ePubPath }}
-              <div class="">
+              <div class="mb-3">
                 <h3 class="text-primary">
                   <a href="#collapse4" data-toggle="collapse">Digital (ePub) Format - {{ .Site.Params.currencySymbol }}{{ .Params.price }}</a>
                 </h3>
@@ -121,6 +104,19 @@
               </div>
             {{ end }}
           {{ end }}
+
+          {{ if .Params.IngramSpark }}
+              <div class="mb-3">
+                <h3 class="text-primary">
+                  <a href="#collapse4" data-toggle="collapse">Print-on-Demand (Ingram Spark) Book</a>
+                </h3>
+                <div id="collapse4" class="collapse lead" data-parent="#accordion">
+                  <a href="{{ .Params.AerioURL }}" class="btn btn-outline-primary" role="button" target="_blank">
+                      <i class="bi-file-pdf mr-2" style="font-size: 1.5rem;">Click to Order From Aer.io Store</i>
+                  </a>
+                </div>
+              </div>
+          {{ end }}
         </div>
 
       </div>
@@ -128,4 +124,23 @@
   </div>
 </section>
 
+{{/*  REAR COVER MODAL  */}}
+{{ if .Params.rearCover }}
+<div class="modal" id="rearCover">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ .Title }} (Rear Cover)</h5>
+        <button class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <img src="{{ .Params.rearCover }}" alt="Rear Cover" class="img-fluid w-100">         
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}
 {{ end }}
