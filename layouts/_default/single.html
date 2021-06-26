@@ -76,7 +76,13 @@
               <a href="#collapse3" data-toggle="collapse">Paper (Physical book) Format - {{ .Site.Params.currencySymbol }}{{ .Params.price }}</a>
             </h3>
             <div id="collapse3" class="collapse" data-parent="#accordion">
-              <p>Use the button below to purchase the Paper version. If there is a digital version (i.e. ePub) there will be another section below this one.</p>
+              <p class="d-none d-sm-block">Use the button below to purchase the Paper version. This will be shipped to you by The Study once your order is processed</p>
+              {{ if .Params.childID }}
+              <p class="d-none d-sm-block">There is also a digital version (i.e. ePub) available. There is another section below this one. Click on it to access the ePub version of this book.</p>
+              {{ end }}
+              {{ if .Params.IngramSpark }}
+              <p class="d-none d-sm-block">There is an <em>Ingram Spark</em> 'Print on Demand' version of this title available as well. This is probably a better choice for international customers. Use the section below to go to the Reformed Perspective <em>Aerio</em> store to purchase it.</p>
+              {{ end }}
               <button class="snipcart-add-item btn btn-outline-primary mb-20" data-item-id="{{ .Params.ProductID }}"
                 data-item-name="{{ .Params.Title }}" {{ .Params.cover }} data-item-image="{{ .Params.cover | absURL }}"
                 data-item-price="{{ .Params.Price }}" data-item-url="{{ .RelPermalink }}" data-item-description="{{ .Params.Description }}">
@@ -94,6 +100,7 @@
                 </h3>
                 <div id="collapse4" class="collapse" data-parent="#accordion">
                   <p>There is a digital (i.e. ePub) version of this book available. Use the button below to purchase it.</p>
+                  <p class="d-none d-sm-block">You should receive your receipt via e-mail along with instructions on how to download the ePub.</p>
                   <button class="snipcart-add-item btn btn-outline-primary" data-item-id="{{ .Params.ProductID }}"
                     data-item-name="{{ .Params.Title }}" {{ .Params.cover }} data-item-image="{{ .Params.cover | absURL }}"
                     data-item-price="{{ .Params.Price }}" data-item-url="{{ .RelPermalink }}" data-item-description="{{ .Params.Description }}"
@@ -110,9 +117,11 @@
                 <h3 class="text-primary">
                   <a href="#collapse4" data-toggle="collapse">Print-on-Demand (Ingram Spark) Book</a>
                 </h3>
-                <div id="collapse4" class="collapse lead" data-parent="#accordion">
+                <div id="collapse4" class="collapse" data-parent="#accordion">
+                  <p class="d-none d-sm-block">Click the button below to go to the Reformed Perspective 'Aerio' page for this book. There you can purchase a 'Print-On-Demand' copy of <em>{{ .Title }}</em> which will be printed and shipped directly to your address.</p>
+                  <p class="d-none d-sm-block">Feel free to browse the <a href="https://shop.aer.io/ReformedPerspective">Reformed Perspective Bookstore</a> for other Reformed books as well.</p>
                   <a href="{{ .Params.AerioURL }}" class="btn btn-outline-primary" role="button" target="_blank">
-                      <i class="bi-file-pdf mr-2" style="font-size: 1.5rem;">Click to Order From Aer.io Store</i>
+                      <i class="bi-book mr-2" style="font-size: 1.5rem;"> Click to Order From the RP Aer.io Store</i>
                   </a>
                 </div>
               </div>
