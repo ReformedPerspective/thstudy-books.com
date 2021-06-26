@@ -99,7 +99,7 @@
                   <a href="#collapse4" data-toggle="collapse">Digital (ePub) Format - {{ .Site.Params.currencySymbol }}{{ .Params.price }}</a>
                 </h3>
                 <div id="collapse4" class="collapse" data-parent="#accordion">
-                  <p>There is a digital (i.e. ePub) version of this book available. Use the button below to purchase it.</p>
+                  <p class="d-none d-sm-block">There is a digital (i.e. ePub) version of this book available. Use the button below to purchase it.</p>
                   <p class="d-none d-sm-block">You should receive your receipt via e-mail along with instructions on how to download the ePub.</p>
                   <button class="snipcart-add-item btn btn-outline-primary" data-item-id="{{ .Params.ProductID }}"
                     data-item-name="{{ .Params.Title }}" {{ .Params.cover }} data-item-image="{{ .Params.cover | absURL }}"
