@@ -1,7 +1,7 @@
 ######################## default configuration ####################
 baseURL = "https://thestudy-books.com"
 languageCode = "en"
-title = "The Study - Canadian Reformed non-profit"
+title = "The Study - Quality Reformed Study Books"
 summaryLength = "20"
 paginate = 12
 disqusShortname = ""
