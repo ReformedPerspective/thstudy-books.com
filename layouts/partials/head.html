@@ -30,4 +30,19 @@
   <link rel="icon" href="{{ `images/favicon.png` | absURL }} " type="image/x-icon"> -->
   {{ partial "favicon.html" }}
 
+  {{/*  Only add Social Media meta properties if this is a 'Regular' page  */}}
+  {{ if .IsPage  }}
+    {{/*  Facebook Open Graph tags  */}}
+    <meta property=“og:image” content=“{{ .Params.cover | absURL }}” />
+    <meta property=”og:image:width” content=”400″ />
+    <meta property=”og:image:height” content=”600″ />
+
+    {{/*  Twitter Cards info.  */}}
+    <meta name=”twitter:card” content=”{{ .Params.description | truncate 50 }}”>
+    <meta name=”twitter:url” content=”{{ .RelPermalink }}”>
+    <meta name=”twitter:title” content=”{{ .Title }}”>
+    <meta name=”twitter:description” content=”{{ .Params.description }}”>
+    <meta name=”twitter:image” content=”{{ .Params.cover | absURL }}”>
+  {{ end }}
+
 </head>
