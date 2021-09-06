@@ -33,9 +33,15 @@
   {{/*  Only add Social Media meta properties if this is a 'Regular' page  */}}
   {{ if .IsPage  }}
     {{  "<!-- Facebook Open Graph tags -->" | safeHTML  }}
+    <meta property="og:title" content="{{ .Title }}" />
+    <meta property="og:type" content="book" />
+    <meta property="og.url" content="{{ .RelPermalink }}" />
     <meta property="og:image" content="{{ .Params.cover | absURL }}" />
     <meta property="og:image:width" content="400" />
     <meta property="og:image:height" content="600" />
+    <meta property="og:book" content="{{ .RelPermalink }}" />
+    <meta property="og:book:author" content="{{ .Params.author }}" />
+    <meta property="og:description" content="{{ .Params.description }}" />
     {{/*  Other OG tags: og:url, og:type, og:title, og:image, og:description, fb:app_id  */}}
 
     {{ "<!-- Twitter Cards info. -->" | safeHTML  }}
