@@ -76,12 +76,13 @@
               <a href="#collapse3" data-toggle="collapse">Paper (Physical book) Format - {{ .Site.Params.currencySymbol }}{{ .Params.price }}</a>
             </h3>
             <div id="collapse3" class="collapse" data-parent="#accordion">
-              <p class="d-none d-sm-block">Use the button below to purchase the Paper version. This will be shipped to you by The Study once your order is processed</p>
+              <p class="d-none d-sm-block">Use the button below to purchase the Paper version. This will be shipped to you by The Study once your order is processed. Shipping is free <strong>within Canada only</strong>.</p>
+              <p><strong>International customers</strong> should consider ordering an <em>ePub</em> or <em>Print-on-Demand</em> version, if available since shipping costs, especially overseas, are prohibitively expensive. Otherwise contact The Study <a href="#footer">using the form or the contact info. below.</a>.</p>
               {{ if .Params.childID }}
-              <p class="d-none d-sm-block">There is also a digital version (i.e. ePub) available. There is another section below this one. Click on it to access the ePub version of this book.</p>
+              <p class="d-none d-sm-block">There is also a <strong>digital (i.e. ePub)</strong> version available. There is another section below this one. Click on it to access the ePub version of this book.</p>
               {{ end }}
               {{ if .Params.IngramSpark }}
-              <p class="d-none d-sm-block">There is an <em>Ingram Spark</em> 'Print on Demand' version of this title available as well. This is probably a better choice for international customers. Use the section below to go to the Reformed Perspective <em>Aerio</em> store to purchase it.</p>
+              <p class="d-none d-sm-block">There is an <em>Ingram Spark</em> '<strong>Print on Demand</strong>' version of this title available as well. This is probably a better choice for international customers. Use the section below to go to the Reformed Perspective <em>Aerio</em> store to purchase it.</p>
               {{ end }}
               <button class="snipcart-add-item btn btn-outline-primary mb-20" data-item-id="{{ .Params.ProductID }}"
                 data-item-name="{{ .Params.Title }}" {{ .Params.cover }} data-item-image="{{ .Params.cover | absURL }}"
