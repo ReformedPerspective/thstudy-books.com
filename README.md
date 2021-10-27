@@ -6,11 +6,11 @@ This is the website for **The Study**, a not-for-profit organization operated by
 
 - [How the Site is Built](#how-the-site-is-built)
   
-  - [Hugo - Site Generator](#hugo-site-generator)
+  - [Hugo - Site Generator](#hugo---site-generator)
   
-  - [Netlify - Automatic Deployment](#netlify-automatic-deployment)
+  - [Netlify - Automatic Deployment](#netlify---automatic-deployment)
   
-  - [Netlify CMS - Headless Front-end](#netlify-cms-headless-front-end)
+  - [Netlify CMS - Headless Front-end](#netlify-cms---headless-front-end)
 
 - [Development Setup](#development-setup)
   
