@@ -26,6 +26,9 @@ collections:
       - label: "Confessional/Topical"
         field: categories
         pattern: "Confessional Topical"
+      - label: "Featured Books"
+        field: categories
+        pattern: "Featured"
     sortable_fields: ["title","productID","author","formats","price","publisher"]
     fields:
       - label: "ProductID"
