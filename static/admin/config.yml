@@ -94,7 +94,7 @@ collections:
         widget: "markdown"
         default: "## About the Author"
         hint: "Use a second level heading (##) with 'About the Author' to start."
-        required: false          
+        required: false
 
       - label: "Preview PDF"
         name: "preview"
@@ -113,6 +113,7 @@ collections:
         widget: "image"
         media_folder: "/static/uploads/covers"
         allow_multiple: false
+        required: false
         hint: "Uploaded Rear cover image. Please scale image to 400x600 before uploading."
 
       - label: "Formats"
@@ -155,7 +156,6 @@ collections:
       - label: "Aer.io Store URL"
         name: "AerioURL"
         widget: "string"
-        default: false
         required: false
         hint: "URL to the IngramSpark Aer.io book page. Only used if IngramSpark is set to true above."
 
