@@ -40,7 +40,7 @@ collections:
       - {label: "Book Title", name: "title", widget: "string", hint: "Add ' - ePub' to the end of the Title for Digital versions of books."}
       - label: "Book SubTitle"
         name: "subtitle"
-        widget: "text"
+        widget: "string"
         required: false
         hint: "This is optional, but do split up the Title into Title and Subtitle if appropriate."
       - label: "IngramSpark Book"
@@ -49,11 +49,17 @@ collections:
         default: false
         required: false
         hint: "Turn this on if the book should be purchased through the IngramSpark Aer.io store."
+      - label: "Aer.io Store URL"
+        name: "AerioURL"
+        widget: "string"
+        default: false
+        required: false
+        hint: "URL to the IngramSpark Aer.io book page. Only used if IngramSpark is set to true above."
       - label: "Preview PDF"
         name: "preview"
         widget: "file"
         media_folder: "/static/uploads/previews"
-        hint: "Upload and use a preview PDF for this book."
+        hint: "Upload and use a preview PDF for this book so customers can see the first few pages."
         required: false
       - label: "Description"
         name: "description"
@@ -143,6 +149,24 @@ collections:
         widget: "markdown"
         hint: "Use a second level heading (##) with 'About the Author' to start."
         required: false
+      - label: "IngramSpark Books"
+        widget: "object"
+        collapsed: true
+        summary: "Expand this section to view fields for IngramSpark/Aer.io Store books."
+        fields:
+        - label: "IngramSpark Book"
+          name: "IngramSpark"
+          widget: "boolean"
+          default: false
+          required: false
+          hint: "Turn this on if the book should be purchased through the IngramSpark Aer.io store."
+        - label: "Aer.io Store URL"
+          name: "AerioURL"
+          widget: "string"
+          default: false
+          required: false
+          hint: "URL to the IngramSpark Aer.io book page. Only used if IngramSpark is set to true above."
+
 
   - label: "Site Pages"
     name: "pages"
