@@ -150,6 +150,7 @@ collections:
         hint: "Use a second level heading (##) with 'About the Author' to start."
         required: false
       - label: "IngramSpark Books"
+        name: "ingramspark"
         widget: "object"
         collapsed: true
         summary: "Expand this section to view fields for IngramSpark/Aer.io Store books."
