@@ -37,49 +37,53 @@ collections:
         widget: "number"
         value_type: "int"
         hint: "Make this the same as the ProductID."
-      - {label: "Book Title", name: "title", widget: "string", hint: "Add ' - ePub' to the end of the Title for Digital versions of books."}
-      - label: "Book SubTitle"
-        name: "subtitle"
-        widget: "string"
-        required: false
-        hint: "This is optional, but do split up the Title into Title and Subtitle if appropriate."
-      - label: "IngramSpark Book"
-        name: "IngramSpark"
-        widget: "boolean"
-        default: false
-        required: false
-        hint: "Turn this on if the book should be purchased through the IngramSpark Aer.io store."
-      - label: "Aer.io Store URL"
-        name: "AerioURL"
-        widget: "string"
-        default: false
-        required: false
-        hint: "URL to the IngramSpark Aer.io book page. Only used if IngramSpark is set to true above."
-      - label: "Preview PDF"
-        name: "preview"
-        widget: "file"
-        media_folder: "/static/uploads/previews"
-        hint: "Upload and use a preview PDF for this book so customers can see the first few pages."
-        required: false
-      - label: "Description"
-        name: "description"
-        widget: "markdown"
-        hint: "Enter a description of the Book"
-      - label: "Price $"
-        name: "price"
-        widget: "number"
-        value_type: "float"
-      - label: "Sale Price $"
-        name: "salePrice"
-        widget: "number"
-        value_type: "float"
-        required: false
-        hint: "Only enter a sale price if it differs from the regular price."
-      - label: "SnipCart UUID"
-        name: "snipcartUUID"
-        widget: "string"
-        required: false
-        hint: "This is the UUID from Snipcart for Digital resources that have been uploaded to Snipcart."
+
+      - label: "Book Information"
+        name: "bookinfo"
+        widget: "object"
+        summary: "{{ fields.title }}: {{ fields.subtitle }}"
+        fields:
+        - {label: "Book Title", name: "title", widget: "string", hint: "Add ' - ePub' to the end of the Title for Digital versions of books."}
+        - label: "Book SubTitle"
+          name: "subtitle"
+          widget: "string"
+          required: false
+          hint: "This is optional, but do split up the Title into Title and Subtitle if appropriate."
+        - label: "Description"
+          name: "description"
+          widget: "markdown"
+          hint: "Enter a description of the Book"
+        - label: "Author(s)"
+          name: "author"
+          widget: "string"
+        - label: "Publisher"
+          name: "publisher"
+          widget: "string"
+          default: "The Study"
+        - label: "ISBN"
+          name: "ISBN"
+          widget: "string"
+          required: false
+          hint: "Enter an ISBN number if there is one available."
+        - label: "Published Year"
+          name: "publishYear"
+          widget: "string"
+          pattern: ['\d{4}', "Year of publishing"]
+        - label: "Page Count"
+          name: "pageCount"
+          widget: "number"
+          value_type: "int"
+        - label: "Price $"
+          name: "price"
+          widget: "number"
+          value_type: "float"
+        - label: "Sale Price $"
+          name: "salePrice"
+          widget: "number"
+          value_type: "float"
+          required: false
+          hint: "Only enter a sale price if it differs from the regular price."
+
       - label: "Categories"
         name: "categories"
         widget: "select"
@@ -87,68 +91,74 @@ collections:
         options: ["Old Testament","New Testament","Confessional Topical","Digital (ePub)","Featured","Paper","The Study Books"]
         default: ["The Study Books"]
         min: 1
-      - label: "Cover Image"
-        name: "cover"
-        widget: "image"
-        media_folder: "/static/uploads/covers"
-        allow_multiple: false
-        hint: "Uploaded cover image. Please scale image to 400x600 before uploading."
-      - label: "Rear Cover Image"
-        name: "rearCover"
-        widget: "image"
-        media_folder: "/static/uploads/covers"
-        allow_multiple: false
-        hint: "Uploaded Rear cover image. Please scale image to 400x600 before uploading."
-      - label: "Author(s)"
-        name: "author"
-        widget: "string"
-      - label: "Publisher"
-        name: "publisher"
-        widget: "string"
-        default: "The Study"
-      - label: "ISBN"
-        name: "ISBN"
-        widget: "string"
-        required: false
-        hint: "Enter an ISBN number if there is one available."
-      - label: "Published Year"
-        name: "publishYear"
-        widget: "string"
-        pattern: ['\d{4}', "Year of publishing"]
-      - label: "Page Count"
-        name: "pageCount"
-        widget: "number"
-        value_type: "int"
+
+      - label: "Author Information"
+        name: "body"
+        widget: "markdown"
+        hint: "Use a second level heading (##) with 'About the Author' to start."
+        required: false          
+
+      - label: "Media Uploads"
+        name: "mediauploads"
+        widget: "object"
+        summary: "Expand this section to view fields for PDF and image uploads"
+        fields:
+        - label: "Preview PDF"
+          name: "preview"
+          widget: "file"
+          media_folder: "/static/uploads/previews"
+          hint: "Upload and use a preview PDF for this book so customers can see the first few pages."
+          required: false
+        - label: "Cover Image"
+          name: "cover"
+          widget: "image"
+          media_folder: "/static/uploads/covers"
+          allow_multiple: false
+          hint: "Uploaded cover image. Please scale image to 400x600 before uploading."
+        - label: "Rear Cover Image"
+          name: "rearCover"
+          widget: "image"
+          media_folder: "/static/uploads/covers"
+          allow_multiple: false
+          hint: "Uploaded Rear cover image. Please scale image to 400x600 before uploading."
+
       - label: "Formats"
         name: "formats"
         widget: "select"
         options: ["Digital (ePub)","Paper"]
         default: ["Paper"]
         multiple: false
-      - label: "ID of Parent (Paper book) Product"
-        name: "parentID"
-        widget: "relation"
-        collection: "products"
-        value_field: "productID"
-        search_fields: ["author","title","productID"]
-        display_fields: ["productID","title","author"]
-        required: false
-        hint: "Only use for ePub products to indicate Product ID of main book."
-      - label: "ID of Child (ePub) Product"
-        name: "childID"
-        widget: "relation"
-        collection: "products"
-        value_field: "productID"
-        search_fields: ["author","title","productID"]
-        display_fields: ["productID","title","author"]
-        required: false
-        hint: "Only use for Paper books with an associated ePub to indicate the Product ID of the corresponding ePub."
-      - {label: "Type", name: "type", widget: "Hidden", default: "products"}
-      - label: "Author Information"
-        name: "body"
-        widget: "markdown"
-        hint: "Use a second level heading (##) with 'About the Author' to start."
-        required: false
+
+      - label: "eBook Information"
+        name: "ebookinfo"
+        widget: "object"
+        collapsed: true
+        summary: "Expand this section to view fields for eBooks"
+        fields:
+        - label: "ID of Parent (Paper book) Product"
+          name: "parentID"
+          widget: "relation"
+          collection: "products"
+          value_field: "productID"
+          search_fields: ["author","title","productID"]
+          display_fields: ["productID","title","author"]
+          required: false
+          hint: "Only use for ePub products to indicate Product ID of main book."
+        - label: "ID of Child (ePub) Product"
+          name: "childID"
+          widget: "relation"
+          collection: "products"
+          value_field: "productID"
+          search_fields: ["author","title","productID"]
+          display_fields: ["productID","title","author"]
+          required: false
+          hint: "Only use for Paper books with an associated ePub to indicate the Product ID of the corresponding ePub."
+        - label: "SnipCart UUID"
+          name: "snipcartUUID"
+          widget: "string"
+          required: false
+          hint: "This is the UUID from Snipcart for Digital resources that have been uploaded to Snipcart."
+
       - label: "IngramSpark Books"
         name: "ingramspark"
         widget: "object"
@@ -168,6 +178,7 @@ collections:
           required: false
           hint: "URL to the IngramSpark Aer.io book page. Only used if IngramSpark is set to true above."
 
+      - {label: "Type", name: "type", widget: "Hidden", default: "products"}
 
   - label: "Site Pages"
     name: "pages"
