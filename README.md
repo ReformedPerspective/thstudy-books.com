@@ -1,4 +1,4 @@
-# The Study ([thestudy-books.com](https://thestudy-books.com))
+# The Study ([thestudy-books.com](https://thestudy-books.com)) [![Netlify Status](https://api.netlify.com/api/v1/badges/5d3d197e-9266-46bb-836b-21364dc27a59/deploy-status)](https://app.netlify.com/sites/thestudybooks/deploys)
 
 This is the website for **The Study**, a not-for-profit organization operated by members of the [Canadian Reformed Churches](https://canrc.org/).
 
