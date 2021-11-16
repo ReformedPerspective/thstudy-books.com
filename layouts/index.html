@@ -43,7 +43,7 @@
             </div>
 
 
-            {{ range  where .Site.RegularPages ".Params.categories" "intersect" (slice "Featured") }}
+            {{ range sort (where .Site.RegularPages ".Params.categories" "intersect" (slice "Featured")) ".Params.featuredOrder" }}
             {{ if not (.Params.parentID) }}
             <div class="col-lg-3 col-sm-6 mb-4">
                <div class="card border-0 text-center">
