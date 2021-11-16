@@ -91,6 +91,12 @@ collections:
         options: ["Old Testament","New Testament","Confessional Topical","Digital (ePub)","Featured","Paper","The Study Books"]
         default: ["The Study Books"]
         min: 1
+      - label: "Featured Books Order"
+        name: "featuredOrder"
+        widget: "number"
+        value_type: "int"
+        required: false
+        hint: "This is only used if the Featured category is used. Featured books will be sorted according to this field."
 
       - label: "Author Information"
         name: "body"
