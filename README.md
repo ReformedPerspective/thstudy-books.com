@@ -50,4 +50,54 @@ The first thing you'll need is Hugo. Follow the [directions on the Hugo website]
 
 If you're on Windows install Git from the [official website](https://gitforwindows.org) or through Chocolatey. You'll have to get access to the Reformed Perspective GitHub organization. Contact tech@reformedperspective.ca if you haven't already.
 
+You'll want to do one of:
+
+- set up ssh keys on the GitHub repo so you can use Git from the command line
+  
+  - clone the repo with
+    `git clone git@github.com:ReformedPerspective/thstudy-books.com.git`
+  
+  - use VSCode (or VSCodium) or another IDE to clone the repo using your SSH key
+
+- use the GitHub Desktop app to clone the repo
+
+- use the GitHub command line app
+  
+  - clone the repo with
+    `gh repo clone ReformedPerspective/thstudy-books.com`
+
+## Run Hugo
+
+Run `hugo server` to have Hugo automatically create a temporary version of the site and monitor for changes. Connect to `http://localhost:1313` (or whatever Hugo says on the command line) to view the site.
+
 ## Site Layout
+
+The directory structure for the site is as follows:
+
+```bash
+├── archetypes #base files for new pages
+├── assets #javascript and scss for the Hugo pipeline
+│   ├── js
+│   └── scss
+├── content
+│   ├── about
+│   ├── categories
+│   ├── faq
+│   ├── products #all the books live here
+│   └── resources
+├── data #yml files for certain pages' data
+├── layouts #Hugo templates for pages
+│   ├── _default
+│   ├── about
+│   ├── categories
+│   ├── faq
+│   ├── partials #partial template use elsewhere
+│   ├── products
+│   └── resources
+├── static #static html files
+│   ├── admin #Netlify CMS admin site
+│   ├── images
+│   └── uploads #folder for Netlify CMS uploads
+│       ├── covers
+│       └── previews
+```
