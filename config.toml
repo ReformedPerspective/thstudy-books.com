@@ -155,7 +155,7 @@ mapMarker = "images/marker.png"
 # Google Analitycs
 googleAnalitycsID = "" # Your ID
 # Contact Information
-mobile = "(519) 654-3210"
+mobile = ""
 email = "thestudy.books@gmail.com"
 location = "Fergus, Ontario, Canada"
 # copyright

@@ -16,21 +16,21 @@
       <div class="col-md-4 col-sm-6 text-primary">
         <h5 class="mb-4">Connect With Us</h5>
         <ul class="list-unstyled mb-5">
-          <li class="mb-3">
+          {{/* <li class="mb-3">
             <a href="tel:{{ site.Params.mobile }}">
               <i class="bi-telephone text-primary mr-2"></i>{{ site.Params.mobile }}
             </a>
-          </li>
+          </li> */}}
           <li class="">
             <a href="mailto:{{ site.Params.email }}">
               <i class="bi-mailbox text-primary mr-2"></i>{{ site.Params.email }}
             </a>
           </li>
-          <!--li class="mb-3">
+          {{/* <li class="mb-3">
             <i class="bi-geo text-primary mr-2"></i>{{ site.Params.location }}
-          </li-->
+          </li> */}}
         </ul>
-        <!-- Social Icons -->
+        {{/* <!-- Social Icons --> */}}
         <ul class="list-inline">
           {{ range site.Params.social }}
           <li class="list-inline-item"><a href="{{ .link | safeURL }}"><i class="{{ .icon }} text-primary"></i></a></li>
