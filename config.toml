@@ -159,7 +159,7 @@ mobile = ""
 email = "thestudy.books@gmail.com"
 location = "Fergus, Ontario, Canada"
 # copyright
-copyright = "| Copyright &copy; 2021 [Reformed Perspective](https://reformedperspective.ca) All Rights Reserved |"
+copyright = "| Copyright &copy; 2022 [Reformed Perspective](https://reformedperspective.ca) All Rights Reserved |"
 # Snipcart Credentials
 snipcartApiKey = "***REMOVED***"
 currencySymbol = "$"
