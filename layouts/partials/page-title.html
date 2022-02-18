@@ -1,6 +1,6 @@
 <section class="section-sm">
   {{ if .Params.banner }}
-  <img class="img-fluid mb-3" src="{{ .Params.banner_img }}" alt="banner">
+  <img class="img-fluid mb-3" src="{{ .Params.banner_img | relURL }}" alt="banner">
   {{ end }}
   <div class="container">
     <div class="row">

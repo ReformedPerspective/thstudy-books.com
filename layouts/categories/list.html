@@ -10,7 +10,7 @@
       <div class="col-lg-3 mx-auto mb-5">
         <article class="card rounded-0 border-0">
           <a href="{{ .RelPermalink }}">
-            <img src="{{ .Params.cover | absURL }}" alt="{{ .Title | markdownify }}" class="card-img-top">
+            <img src="{{ .Params.cover | relURL }}" alt="{{ .Title | markdownify }}" class="card-img-top">
           </a>
           <div class="card-body px-0">
             <ul class="list-inline">

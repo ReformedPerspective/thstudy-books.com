@@ -10,7 +10,7 @@
       <div class="col-lg-8 mx-auto mb-5">
         <article class="card rounded-0 border-0">
           <a href="{{ .RelPermalink }}">
-            <img src="{{ .Params.cover | absURL }}" alt="{{ .Title | markdownify }}" class="card-img-top rounded-top-0">
+            <img src="{{ .Params.cover | relURL }}" alt="{{ .Title | markdownify }}" class="card-img-top rounded-top-0">
           </a>
           <div class="card-body px-0">
             <a href="{{ .RelPermalink }}" class="h4 d-block">{{ .Title | markdownify }}</a>

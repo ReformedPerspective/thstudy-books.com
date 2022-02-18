@@ -34,16 +34,16 @@
         <!-- Only show rear cover view if there is one -->
         {{ if .Params.rearCover }}
         <a href="#" data-toggle="modal" data-target="#rearCover">
-          <img src="{{ .Params.cover | absURL }}" alt="{{ .Title }}" class="img-fluid rounded mb-4" data-toggle="tooltip" data-placement="right" data-html="true"
+          <img src="{{ .Params.cover | relURL }}" alt="{{ .Title }}" class="img-fluid rounded mb-4" data-toggle="tooltip" data-placement="right" data-html="true"
           title="<h4 class=''><strong>Rear Cover View</strong></h4><p class='text-secondary'>Click on cover image to view the rear cover.</p>">
         </a>
         {{ else }}
-        <img src="{{ .Params.cover | absURL }}" alt="{{ .Title }}" class="img-fluid rounded mb-4">
+        <img src="{{ .Params.cover | relURL }}" alt="{{ .Title }}" class="img-fluid rounded mb-4">
         {{ end }}
         
         <!-- Only show a PDF preview link if there is one -->
         {{ if .Params.preview }}
-        <a href="{{ .Params.preview }}" class="btn btn-outline-primary btn-block" role="button">
+        <a href="{{ .Params.preview | relURL }}" class="btn btn-outline-primary btn-block" role="button">
           <i class="bi-file-pdf mr-2" style="font-size: 1.5rem;"> Click to View PDF Preview</i>
         </a>
         {{ end }}
@@ -121,7 +121,7 @@
                 <div id="collapse5" class="collapse" data-parent="#accordion">
                   <p class="d-none d-sm-block">Click the button below to go to the Reformed Perspective 'Aerio' page for this book. There you can purchase a 'Print-On-Demand' copy of <em>{{ .Title }}</em> which will be printed and shipped directly to your address.</p>
                   <p class="d-none d-sm-block">Feel free to browse the <a href="https://shop.aer.io/ReformedPerspective">Reformed Perspective Bookstore</a> for other Reformed books as well.</p>
-                  <a href="{{ .Params.AerioURL }}" class="btn btn-outline-primary" role="button" target="_blank">
+                  <a href="{{ .Params.AerioURL | absURL }}" class="btn btn-outline-primary" role="button" target="_blank">
                       <i class="bi-book mr-2" style="font-size: 1.5rem;"> Click to Order From the RP Aer.io Store</i>
                   </a>
                 </div>
