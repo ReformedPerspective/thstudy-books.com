@@ -17,7 +17,7 @@
               <li class="list-inline-item"><i class="bi-pencil text-primary mr-1"></i>{{ .Params.Author }}</li>
               <li class="list-inline-item"><i class="bi-calendar text-primary mr-1"></i>{{ .Params.publishYear }}</li>
               {{ if .Params.price }}
-              <li class="list-inline-item"><i class="bi-wallet text-primary mr-1"></i> {{ site.Params.currencySymbol }}{{ .Params.price }}</li>
+              <li class="list-inline-item"><i class="bi-wallet text-primary mr-1"></i> {{ site.Params.currencySymbol }}{{ .Params.price | lang.FormatNumber 2 }}</li>
               {{ end }}
             </ul>
             

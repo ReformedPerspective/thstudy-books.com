@@ -15,9 +15,9 @@
           <div class="card-body">
             <div class="mb-4">
               {{ if .Params.salePrice }}
-              <s>{{ site.Params.currencySymbol }}{{ .Params.salePrice }}</s>
+              <s>{{ site.Params.currencySymbol }}{{ .Params.salePrice | lang.FormatNumber 2 }}</s>
               {{ end }}
-              <span class="lead text-primary">{{ site.Params.currencySymbol }}{{ .Params.Price }}</span>
+              <span class="lead text-primary">{{ site.Params.currencySymbol }}{{ .Params.Price | lang.FormatNumber 2 }}</span>
             </div>
               <a href="{{ .RelPermalink }}" class="btn btn-block btn-outline-primary">{{ .Title }}</a>
               {{/*<button class="snipcart-add-item btn btn-sm btn-outline-primary mb-20" data-item-id="{{ .Params.ProductID }}"

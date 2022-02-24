@@ -53,7 +53,7 @@
                   <div class="card-body">
                      <!--a href="{{ .RelPermalink }}" class="h5 card-title">{{ .Title }}</a-->
                      <div class="">
-                        <span class="lead text-primary">Price: {{ site.Params.currencySymbol }}{{ .Params.Price }}</span>
+                        <span class="lead text-primary">Price: {{ site.Params.currencySymbol }}{{ .Params.Price | lang.FormatNumber 2 }}</span>
                      </div>
                   </div>
                </div>
