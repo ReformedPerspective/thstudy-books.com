@@ -161,7 +161,7 @@ location = "Fergus, Ontario, Canada"
 # copyright
 copyright = "| Copyright &copy; 2022 [Reformed Perspective](https://reformedperspective.ca) All Rights Reserved |"
 # Snipcart Credentials
-snipcartApiKey = "***REMOVED***"
+#snipcartApiKey = $HUGO_SNIPCART_APIKEY
 currencySymbol = "$"
 
   # Preloader

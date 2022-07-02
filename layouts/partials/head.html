@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="{{ .link | absURL }}" integrity="{{ .integrity }}" crossorigin="{{ .crossorigin }}">
   {{ end }}
 
-  {{ with site.Params.snipcartApiKey }}
+  {{ with os.Getenv "HUGO_SNIPCART_APIKEY" }}
   {{ "<!-- Snipcart -->" | safeHTML }}
   <link rel="preconnect" href="https://app.snipcart.com/">
   <link rel="preconnect" href="https://cdn.snipcart.com/">
