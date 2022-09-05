@@ -1,4 +1,5 @@
 ---
+inStock: true
 salePrice: null
 pageCount: ""
 genre: Old Testament

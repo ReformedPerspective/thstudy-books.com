@@ -31,6 +31,11 @@ collections:
         pattern: "Featured"
     sortable_fields: ["title","productID","author","formats","price","publisher"]
     fields:
+      - label: "In Stock"
+        name: "inStock"
+        widget: "boolean"
+        default: true
+        hint: "Uncheck when out of stock."
       - label: "ProductID"
         name: "productID"
         widget: "number"
