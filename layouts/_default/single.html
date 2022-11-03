@@ -53,88 +53,70 @@
       </div>
 
       <div class="col-lg-8">
-        <div id="accordion">
-          <div class="mb-3 lead">
-            <h3 class="align-self-center text-primary">
-              <a href="#collapse1"  data-toggle="collapse">Book Description</a>
-            </h3>
-            <div id="collapse1" class="collapse show" data-parent="#accordion">
-              {{ .Params.Description | markdownify }}
-            </div>
-          </div>
+        <div class="mb-3">
+          <h3 class="align-self-center text-primary">Book Description</h3>
+          <p class="lead">{{ .Params.Description | markdownify }}</p>
+        </div>
 
-          {{ if .Content }}
+        {{ if .Content }}
+          <div class="mb-3">
+            <h3 class="text-primary">About the Author</h3>
+            <p>{{ .Content }}</p>
+          </div>
+        {{ end }}
+
+        <div class="mb-3">
+          <h3 class="text-primary">
+            Paper (Physical book) Format - {{ .Site.Params.currencySymbol }}{{ .Params.price | lang.FormatNumber 2 }}
+          </h3>
+          <div>
+            <p class="d-none d-sm-block">Use the button below to purchase the Paper version. This will be shipped to you by The Study once your order is processed. Shipping is free <strong>within Canada only</strong>.</p>
+            <p><strong>International customers</strong> should consider ordering an <em>ePub</em> or <em>Print-on-Demand</em> version, if available, since shipping costs, especially overseas, are prohibitively expensive. Otherwise contact The Study <a href="#footer">using the form or the contact info. below.</a>.</p>
+            {{ if eq .Params.inStock true }}
+            <button class="snipcart-add-item btn btn-outline-primary mb-20" data-item-id="{{ .Params.ProductID }}"
+              data-item-name="{{ .Params.Title }}" {{ .Params.cover }} data-item-image="{{ .Params.cover | absURL }}"
+              data-item-price="{{ .Params.Price }}" data-item-url="{{ .RelPermalink }}" data-item-description="{{ .Params.Description }}">
+              Add Hardcopy to cart
+            </button>
+            {{ else }}
+            <button class="btn btn-outline-primary mb-20">OUT OF STOCK</button>
+            {{ end }}
+          </div>
+        </div>
+        {{ if .Params.childID }}
+          {{ $ePubID := .Params.childID | string }}
+          {{ $ePubPath := replace "/products/THISID.md" "THISID" $ePubID }}
+          {{ with .Site.GetPage $ePubPath }}
             <div class="mb-3">
               <h3 class="text-primary">
-                <a href="#collapse2" data-toggle="collapse">About the Author</a>
+                Digital (ePub) Format - {{ .Site.Params.currencySymbol }}{{ .Params.price | lang.FormatNumber 2 }}
               </h3>
-              <div id="collapse2" class="collapse lead" data-parent="#accordion">
-                {{ .Content }}
+              <div>
+                <p class="d-none d-sm-block">There is a digital (i.e. ePub) version of this book available. Use the button below to purchase it.</p>
+                <p class="d-none d-sm-block">You should receive your receipt via e-mail along with instructions on how to download the ePub. This file is suitable for use on an eReader, on a smartphone or tablet, or with special software like Calibre or SumatraPDF.</p>
+                <button class="snipcart-add-item btn btn-outline-primary" data-item-id="{{ .Params.ProductID }}"
+                  data-item-name="{{ .Params.Title }}" {{ .Params.cover }} data-item-image="{{ .Params.cover | absURL }}"
+                  data-item-price="{{ .Params.Price }}" data-item-url="{{ .RelPermalink }}" data-item-description="{{ .Params.Description }}"
+                  data-item-file-guid="{{ .Params.snipcartUUID }}">
+                  Add ePub to cart
+                </button>
               </div>
             </div>
           {{ end }}
+        {{ end }}
 
-          <div class="mb-3">
-            <h3 class="text-primary">
-              <a href="#collapse3" data-toggle="collapse">Paper (Physical book) Format - {{ .Site.Params.currencySymbol }}{{ .Params.price | lang.FormatNumber 2 }}</a>
-            </h3>
-            <div id="collapse3" class="collapse" data-parent="#accordion">
-              <p class="d-none d-sm-block">Use the button below to purchase the Paper version. This will be shipped to you by The Study once your order is processed. Shipping is free <strong>within Canada only</strong>.</p>
-              <p><strong>International customers</strong> should consider ordering an <em>ePub</em> or <em>Print-on-Demand</em> version, if available, since shipping costs, especially overseas, are prohibitively expensive. Otherwise contact The Study <a href="#footer">using the form or the contact info. below.</a>.</p>
-              {{ if .Params.childID }}
-              <p class="d-none d-sm-block">There is also a <strong>digital (i.e. ePub)</strong> version available. There is another section below this one. Click on it to access the ePub version of this book.</p>
-              {{ end }}
-              {{ if .Params.IngramSpark }}
-              <p class="d-none d-sm-block">There is an <em>Ingram Spark</em> '<strong>Print on Demand</strong>' version of this title available as well. This is probably a better choice for international customers. Use the section below to go to the Reformed Perspective <em>Aerio</em> store to purchase it.</p>
-              {{ end }}
-              {{ if eq .Params.inStock true }}
-              <button class="snipcart-add-item btn btn-outline-primary mb-20" data-item-id="{{ .Params.ProductID }}"
-                data-item-name="{{ .Params.Title }}" {{ .Params.cover }} data-item-image="{{ .Params.cover | absURL }}"
-                data-item-price="{{ .Params.Price }}" data-item-url="{{ .RelPermalink }}" data-item-description="{{ .Params.Description }}">
-                Add Hardcopy to cart
-              </button>
-              {{ else }}
-              <button class="btn btn-outline-primary mb-20">OUT OF STOCK</button>
-              {{ end }}
+        {{ if .Params.IngramSpark }}
+            <div class="mb-3">
+              <h3 class="text-primary">Print-on-Demand (Ingram Spark) Book</h3>
+              <div>
+                <p class="d-none d-sm-block">Click the button below to go to the Reformed Perspective 'Aerio' page for this book. There you can purchase a 'Print-On-Demand' copy of <em>{{ .Title }}</em> which will be printed and shipped directly to your address.</p>
+                <p class="d-none d-sm-block">Feel free to browse the <a href="https://shop.aer.io/ReformedPerspective">Reformed Perspective Bookstore</a> for other Reformed books as well.</p>
+                <a href="{{ .Params.AerioURL | absURL }}" class="btn btn-outline-primary" role="button" target="_blank">
+                    <i class="bi-book mr-2" style="font-size: 1.5rem;"> Click to Order From the RP Aer.io Store</i>
+                </a>
+              </div>
             </div>
-          </div>
-          {{ if .Params.childID }}
-            {{ $ePubID := .Params.childID | string }}
-            {{ $ePubPath := replace "/products/THISID.md" "THISID" $ePubID }}
-            {{ with .Site.GetPage $ePubPath }}
-              <div class="mb-3">
-                <h3 class="text-primary">
-                  <a href="#collapse4" data-toggle="collapse">Digital (ePub) Format - {{ .Site.Params.currencySymbol }}{{ .Params.price | lang.FormatNumber 2 }}</a>
-                </h3>
-                <div id="collapse4" class="collapse" data-parent="#accordion">
-                  <p class="d-none d-sm-block">There is a digital (i.e. ePub) version of this book available. Use the button below to purchase it.</p>
-                  <p class="d-none d-sm-block">You should receive your receipt via e-mail along with instructions on how to download the ePub. This file is suitable for use on an eReader, on a smartphone or tablet, or with special software like Calibre or SumatraPDF.</p>
-                  <button class="snipcart-add-item btn btn-outline-primary" data-item-id="{{ .Params.ProductID }}"
-                    data-item-name="{{ .Params.Title }}" {{ .Params.cover }} data-item-image="{{ .Params.cover | absURL }}"
-                    data-item-price="{{ .Params.Price }}" data-item-url="{{ .RelPermalink }}" data-item-description="{{ .Params.Description }}"
-                    data-item-file-guid="{{ .Params.snipcartUUID }}">
-                    Add ePub to cart
-                  </button>
-                </div>
-              </div>
-            {{ end }}
-          {{ end }}
-
-          {{ if .Params.IngramSpark }}
-              <div class="mb-3">
-                <h3 class="text-primary">
-                  <a href="#collapse5" data-toggle="collapse">Print-on-Demand (Ingram Spark) Book</a>
-                </h3>
-                <div id="collapse5" class="collapse" data-parent="#accordion">
-                  <p class="d-none d-sm-block">Click the button below to go to the Reformed Perspective 'Aerio' page for this book. There you can purchase a 'Print-On-Demand' copy of <em>{{ .Title }}</em> which will be printed and shipped directly to your address.</p>
-                  <p class="d-none d-sm-block">Feel free to browse the <a href="https://shop.aer.io/ReformedPerspective">Reformed Perspective Bookstore</a> for other Reformed books as well.</p>
-                  <a href="{{ .Params.AerioURL | absURL }}" class="btn btn-outline-primary" role="button" target="_blank">
-                      <i class="bi-book mr-2" style="font-size: 1.5rem;"> Click to Order From the RP Aer.io Store</i>
-                  </a>
-                </div>
-              </div>
-          {{ end }}
-        </div>
+        {{ end }}
 
       </div>
     </div>
