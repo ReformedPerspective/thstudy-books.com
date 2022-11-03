@@ -5,6 +5,9 @@
     <div class="row justify-content-centre">
       <div class="col-lg-10 mx-auto">
         <article class="mb-10 text-primary">
+          {{ if eq .Params.inStock false }}
+          <h1 class="alert alert-warning text-center text-uppercase">This Book is out of Stock</h1>
+          {{ end }}
           <h2 class="display-4">{{ .Title }}</h2>
           <h4 class="text-secondary">{{ .Params.subtitle }}</h3>
           <ul class="list-inline mb-4">
@@ -84,11 +87,15 @@
               {{ if .Params.IngramSpark }}
               <p class="d-none d-sm-block">There is an <em>Ingram Spark</em> '<strong>Print on Demand</strong>' version of this title available as well. This is probably a better choice for international customers. Use the section below to go to the Reformed Perspective <em>Aerio</em> store to purchase it.</p>
               {{ end }}
+              {{ if eq .Params.inStock true }}
               <button class="snipcart-add-item btn btn-outline-primary mb-20" data-item-id="{{ .Params.ProductID }}"
                 data-item-name="{{ .Params.Title }}" {{ .Params.cover }} data-item-image="{{ .Params.cover | absURL }}"
                 data-item-price="{{ .Params.Price }}" data-item-url="{{ .RelPermalink }}" data-item-description="{{ .Params.Description }}">
                 Add Hardcopy to cart
               </button>
+              {{ else }}
+              <button class="btn btn-outline-primary mb-20">OUT OF STOCK</button>
+              {{ end }}
             </div>
           </div>
           {{ if .Params.childID }}
