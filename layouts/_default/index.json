@@ -1,5 +1,8 @@
 {{- $.Scratch.Add "index" slice -}}
-{{- range where .Site.RegularPages ".Params.parentID" "" -}}
-{{- $.Scratch.Add "index" (dict "title" .Title "categories" .Params.categories "contents" .Plain "permalink" .RelPermalink "subtitle" .Params.subtitle "description" .Params.description "publisher" .Params.publisher "author" .Params.author) -}}
+{{- $emptyID := where .Site.RegularPages "Params.parentID" "eq" "" -}}
+{{- $nullID := where .Site.RegularPages "Params.parentID" "eq" nil -}}
+{{- $books := $emptyID | union $nullID -}}
+{{- range $books -}}
+   {{- $.Scratch.Add "index" (dict "title" .Title "categories" .Params.categories "contents" .Plain "permalink" .RelPermalink "subtitle" .Params.subtitle "description" .Params.description "publisher" .Params.publisher "author" .Params.author) -}}
 {{- end -}}
 {{- $.Scratch.Get "index" | jsonify -}}
