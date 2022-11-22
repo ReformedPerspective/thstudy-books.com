@@ -4,10 +4,6 @@ contact:
   # office
   office:
     title: "Mailing Address"
-    address:
-      street: "P.O. Box 1039"
-      town: "Carman, Manitoba, Canada"
-      postal: "R0G 0J0"
     # other information comes from "config.toml"
 
   # second column

@@ -157,12 +157,19 @@ googleAnalitycsID = "" # Your ID
 # Contact Information
 mobile = ""
 email = "thestudy.books@gmail.com"
-location = "Carman, Manitoba, Canada"
 # copyright
 copyright = "| Copyright &copy; 2022 [Reformed Perspective](https://reformedperspective.ca) All Rights Reserved |"
 # Snipcart Credentials
 #snipcartApiKey = $HUGO_SNIPCART_APIKEY
 currencySymbol = "$"
+
+[params.address]
+  street =  "P.O. Box 1039"
+  town = "Carman"
+  prov = "Manitoba"
+  provShort = "MB"
+  country = "Canada"
+  postal =  "R0G 0J0"
 
   # Preloader
   [params.preloader]

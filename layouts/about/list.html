@@ -14,11 +14,11 @@
       </div>
       
       <div class="col-lg-4 col-sm-6 text-primary">
-        {{ with site.Data.about.contact.office }}
-        <h5 class="mb-4">{{ .title }}</h5>
-        <p class="ml-4 mb-0">{{ .address.street }}</p>
-        <p class="mb-0"><i class="bi-mailbox mr-2"></i>{{ .address.town }}</p>
-        <p class="ml-4">{{ .address.postal }}</p>
+        {{ with .Site.Params.address }}
+        <h5 class="mb-4">{{ site.Data.about.contact.office.title }}</h5>
+        <p class="ml-4 mb-0">{{ .street }}</p>
+        <p class="mb-0"><i class="bi-mailbox mr-2"></i>{{ printf "%s, %s, %s" .town .provShort .country }}</p>
+        <p class="ml-4">{{ .postal }}</p>
         {{ end }}
         <h5 class="mb-3">Contact</h5>
         <ul class="list-unstyled">
