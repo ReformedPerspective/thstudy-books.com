@@ -5,9 +5,9 @@ contact:
   office:
     title: "Mailing Address"
     address:
-      street: "Box 445"
-      town: "Fergus, Ontario, Canada"
-      postal: "N1M 3E2"
+      street: "P.O. Box 1039"
+      town: "Carman, Manitoba, Canada"
+      postal: "R0G 0J0"
     # other information comes from "config.toml"
 
   # second column
