@@ -145,8 +145,8 @@ disqusShortname = ""
 logo = "images/logo.png"
 home = "Home"
 # Meta data
-description = "The Study Books - maintained by members of the Canadian Reformed Churches"
-author = "Reformed Perspective"
+description = "The Study Books - maintained by Providence Books Press"
+author = "Providence Books Press"
 # google map
 gmapAPI = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"
 mapLatitude = ""
@@ -156,9 +156,9 @@ mapMarker = "images/marker.png"
 googleAnalitycsID = "" # Your ID
 # Contact Information
 mobile = ""
-email = "thestudy.books@gmail.com"
+email = "providencebooksales@outlook.com"
 # copyright
-copyright = "| Copyright &copy; 2022 [Reformed Perspective](https://reformedperspective.ca) All Rights Reserved |"
+copyright = "| Copyright &copy; 2023 [Providence Books Press](https://providencebookspress.com) All Rights Reserved |"
 # Snipcart Credentials
 #snipcartApiKey = $HUGO_SNIPCART_APIKEY
 currencySymbol = "$"
